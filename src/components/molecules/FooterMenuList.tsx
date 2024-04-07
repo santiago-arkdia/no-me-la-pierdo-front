@@ -3,8 +3,8 @@ import { IoIosMail } from "react-icons/io";
 import { PiMapPinLineFill } from "react-icons/pi";
 import { SiTarget } from "react-icons/si";
 
-export const FooterMenuList = ({ section }) => {
-  const renderIcon = (type) => {
+export const FooterMenuList = ({ section }: any) => {
+  const renderIcon = (type: string) => {
     switch (type) {
       case "list":
         return <SiTarget className="inline-block mr-2" />;
@@ -28,7 +28,7 @@ export const FooterMenuList = ({ section }) => {
         </h3>
       </div>
       <ul className="font-medium text-gray-500 dark:text-gray-400">
-        {section.list.map((link, index) => (
+        {section.list.map((link: any, index: number) => (
           <li className="mb-4" key={index}>
             <a href="#" className="hover:text-blue ">
               {renderIcon(link.type)}
