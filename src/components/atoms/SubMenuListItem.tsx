@@ -1,4 +1,4 @@
-export const SubMenuHeaderListItems = ({ data }) => {
+export const SubMenuHeaderListItems = ({ data }: any) => {
   return (
     <a
       href="#"
