@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Header } from "app/components/organisms/Header/Header";
 import { Footer } from "app/components/organisms/Footer/Footer";
+import HomeCarousel from "app/components/molecules/HomeCarousel";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,6 +21,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Header />
+        <HomeCarousel />
         {children}
         <Footer />
       </body>

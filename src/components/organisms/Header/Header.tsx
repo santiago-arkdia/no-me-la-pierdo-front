@@ -5,12 +5,12 @@ export const Header = () => {
   return (
     <header>
       <nav>
-        <div className="max-w-6xl mx-auto px-4 ">
+        <div className="max-w-7xl mx-auto px-4 ">
           <div className="flex justify-between items-center text-xl ">
             {/* Logo */}
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-4 ml-10 mr-10">
               <div>
-                <a href="#" className="flex items-center py-5 px-2">
+                <a href="#" className="flex items-center  px-2">
                   <Image
                     src={"/logo.svg"}
                     alt="Logo Tiketera"
@@ -24,17 +24,17 @@ export const Header = () => {
             <div className="flex-1"></div>
 
             {/* Primary nav */}
-            <div className="hidden md:flex items-center space-x-1">
-              <a href="#" className="py-5 px-3 text-blue">
+            <div className="hidden md:flex items-center space-x-1  text-lg font-bold tracking-widest">
+              <a href="#" className=" px-3 text-blue">
                 Inicio
               </a>
-              <a href="#" className="py-5 px-3   hover:text-blue">
+              <a href="#" className=" px-3   hover:text-blue">
                 Eventos
               </a>
-              <a href="#" className="py-5 px-3   hover:text-blue">
+              <a href="#" className=" px-3   hover:text-blue">
                 Noticias
               </a>
-              <a href="#" className="py-5 px-3   hover:text-blue">
+              <a href="#" className=" px-3   hover:text-blue">
                 Contacto
               </a>
             </div>
@@ -43,10 +43,10 @@ export const Header = () => {
             <div className="flex-1"></div>
 
             {/* Secondary nav */}
-            <div className="hidden md:flex items-center space-x-1">
+            <div className="hidden md:flex items-center space-x-1 text-lg font-bold tracking-widest">
               <a
                 href=""
-                className="py-2 px-3  rounded-md transition duration-300"
+                className="py-2 px-3 mr-5 rounded-md transition duration-300"
               >
                 Iniciar sesión
               </a>

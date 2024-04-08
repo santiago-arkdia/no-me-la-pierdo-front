@@ -91,13 +91,16 @@ export const Footer = () => {
               height={42}
             />
           </div>
-          <hr className="my-8 h-px w-5/6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8  " />
+          <hr className="my-8 h-px w-5/6 border-gray-200 sm:mx-auto lg:my-8  " />
         </div>
       </div>
       {/*  Derechos de autor */}
-      <div className=" px-96 text-center my-10">
-        <hr className="border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-4  " />
-        <aside className=" text-lg font-medium">
+      <div className=" text-center mt-10">
+        {/* <div className=" px-96 text-center my-10"> */}
+        <div className="px-96">
+          <hr className="  border-gray-200 sm:mx-auto  " />
+        </div>
+        <aside className=" text-lg font-medium py-4">
           <p>Copyright 2022 © Todos los derechos reservados</p>
         </aside>
       </div>
