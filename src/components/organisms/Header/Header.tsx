@@ -1,3 +1,4 @@
+import { SubMenuHeader } from "app/components/molecules/SubMenuHeader";
 import Image from "next/image";
 
 export const Header = () => {
@@ -89,6 +90,7 @@ export const Header = () => {
           </a>
         </div>
       </nav>
+      <SubMenuHeader />
     </header>
   );
 };
