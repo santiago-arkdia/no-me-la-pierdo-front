@@ -86,7 +86,7 @@ const dataCarousel = {
 
 const HomeCarousel = () => {
   return (
-    <div className="mx-auto w-3/4 h-[756px] bg-blue-600">
+    <div className="mx-auto w-3/4 h-[756px]">
       <Swiper
         effect="fade"
         spaceBetween={50}
