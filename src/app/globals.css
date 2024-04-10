@@ -3,10 +3,10 @@
 @tailwind utilities;
 
 :root {
-  --background: #1A1A1A;
-  --white: #FFFFFF;
-  --blue: #00DBDB;
-  --gray: #E4E4E4;
+  --background: #1a1a1a;
+  --white: #ffffff;
+  --blue: #00dbdb;
+  --gray: #e4e4e4;
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
@@ -30,4 +30,8 @@ body {
   min-height: 100vh;
 }
 
-
+.invalid-day {
+  cursor: not-allowed; /* Cambia el cursor a "not-allowed" para indicar que no se pueden seleccionar */
+  opacity: 0.5; /* Reduce la opacidad para indicar visualmente que no son seleccionables */
+  /* Otros estilos que desees aplicar a los días no seleccionables */
+}
