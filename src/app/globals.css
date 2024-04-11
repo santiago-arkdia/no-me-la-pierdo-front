@@ -36,3 +36,19 @@ body {
   opacity: 0.5; /* Reduce la opacidad para indicar visualmente que no son seleccionables */
   /* Otros estilos que desees aplicar a los días no seleccionables */
 }
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #1A1A1A;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #242424;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
