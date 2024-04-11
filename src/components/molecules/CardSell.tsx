@@ -1,34 +1,55 @@
 import Image from "next/image";
 import { format } from "date-fns";
+import { es } from "date-fns/locale";
+import ButtonAtom from "../atoms/Buttons";
+import { CgMathMinus, CgMathPlus } from "react-icons/cg";
+import { CiCircleAlert } from "react-icons/ci";
+import { BiSolidDoorOpen, BiSolidMapPin } from "react-icons/bi";
 
-export const CardSell = ({ date }: any) => {
+export const CardSell = ({ date, data }: any) => {
+  const { address, age, image, name, open, passport, price } = data;
+  console.log(data);
   return (
     <>
-      <article className="grid grid-cols-3 gap-4 border border-gray-300 rounded-xl p-4 mb-6">
-        <div className="col-span-1">
-          {/* Aquí iría la imagen */}
-          {/* <Image src={imageSrc} alt={title} width={200} height={150} /> */}
+      <article className="grid grid-cols-[1fr_2fr_1fr] gap-4 rounded-xl p-4 mb-4 bg-black">
+        {/* Primera columna (imagen) */}
+        <div className="h-200 relative rounded-lg overflow-hidden">
+          <Image src={image} alt={name} layout="fill" objectFit="cover" />
         </div>
-        <div className="col-span-1 flex flex-col justify-center">
-          <h2 className="text-lg font-bold mb-2">title</h2>
-          <div className="flex flex-col space-y-2">
-            <p>1</p>
-            <p>2</p>
-            <p>3</p>
-            <p>4</p>
+        {/* Segunda columna (información central) */}
+        <div className="flex flex-col items-start">
+          <h2 className="text-lg font-bold mb-2">{passport}</h2>
+          <div className="flex flex-col space-y-2 text-sm pl-2 ">
+            <p className="flex items-center">
+              <CiCircleAlert className="text-xl mx-1" /> {age}
+            </p>
+            <p className="flex items-center">
+              <BiSolidMapPin className="text-xl mx-1" /> {address}
+            </p>
+            <p className="flex items-center">
+              <BiSolidDoorOpen className="text-xl mx-1" />
+              {open}
+            </p>
           </div>
         </div>
-        <div className="col-span-1 flex flex-col justify-center">
-          <h3 className="text-lg font-bold mb-2">
-            {date ? format(date, "dd/MM/yyyy") : ""}
+        {/* Tercera columna (fecha, contador y botón) */}
+        <div className="flex flex-col justify-center items-center ">
+          <h3
+            className={`text-end font-bold mb-2 ${
+              date && format(date, "dd MMMM yyyy", { locale: es }).length > 13
+                ? "text-2xl"
+                : "text-3xl"
+            }`}
+          >
+            {date ? format(date, "dd MMMM yyyy", { locale: es }) : ""}
           </h3>
-          <div className="flex items-center space-x-2">
-            <button className="px-3 py-1 bg-gray-200 rounded-md">-</button>
-            <span>number</span>
-            <button className="px-3 py-1 bg-gray-200 rounded-md">+</button>
+          <div className="flex items-center space-x-4">
+            <ButtonAtom icon={CgMathMinus} />
+            <span>0</span>
+            <ButtonAtom icon={CgMathPlus} active />
           </div>
-          <p className="text-lg font-bold mt-2">price</p>
-          <button className="bg-blue-500 text-white px-4 py-2 rounded-md mt-2">
+          <p className="text-base font-bold mt-2">$ {price}</p>
+          <button className="text-white px-6  rounded-full mt-2 border border-blue">
             Comprar
           </button>
         </div>

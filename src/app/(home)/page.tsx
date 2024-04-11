@@ -100,10 +100,40 @@ export default function Home() {
   };
 
   return (
-    <main className="">
+    // <main className="">
+    //   <div>
+    //     <section className="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8 px-4 md:px-48 bg-violet-400">
+    //       <div className="w-full md:w-1/3  bg-green-500">
+    //         <Calendar
+    //           onDateSelected={handleDateSelected}
+    //           selectedDate={selectedDate} // Pasa la fecha seleccionada como una propiedad
+    //         />
+    //       </div>
+    //       <div className="w-full md:w-2/3">
+    //         <CardSellContainer selectedDate={selectedDate} />
+    //       </div>
+    //     </section>
+    //   </div>
+    // </main>
+    // <main>
+    //   <div>
+    //     <section className="flex flex-col md:flex-row justify-center items-start gap-4 md:gap-8 px-4 md:px-48">
+    //       <div className="w-full md:w-1/3 ">
+    //         <Calendar
+    //           onDateSelected={handleDateSelected}
+    //           selectedDate={selectedDate} // Pasa la fecha seleccionada como una propiedad
+    //         />
+    //       </div>
+    //       <div className="w-full md:w-2/3">
+    //         <CardSellContainer selectedDate={selectedDate} />
+    //       </div>
+    //     </section>
+    //   </div>
+    // </main>
+    <main>
       <div>
-        <section className="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8 px-4 md:px-48">
-          <div className="w-full md:w-1/3">
+        <section className="flex flex-col md:flex-row justify-center items-start px-4 md:px-48">
+          <div className="w-full md:w-1/3 ">
             <Calendar
               onDateSelected={handleDateSelected}
               selectedDate={selectedDate} // Pasa la fecha seleccionada como una propiedad

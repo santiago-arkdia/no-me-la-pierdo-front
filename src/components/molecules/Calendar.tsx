@@ -102,7 +102,7 @@ const Calendar: React.FC<CalendarProps> = ({
 
   return (
     <>
-      <div className="mx-auto max-w-md font-normal text-sm w-72 h-auto bg-black rounded-xl flex flex-col ">
+      <div className="mx-auto max-w-md font-normal text-sm w-96 h-96 bg-black rounded-xl flex flex-col mt-4">
         <div className="p-4 rounded shadow">
           <div className="flex   items-center justify-between  mb-8">
             <button onClick={decrement}>
@@ -115,9 +115,14 @@ const Calendar: React.FC<CalendarProps> = ({
               <IoIosArrowForward />
             </button>
           </div>
-          <div className="grid grid-cols-7 text-center">
-            {DAYS.map((day) => (
+          <div className="grid grid-cols-7 text-center text-lg">
+            {/* {DAYS.map((day) => (
               <div key={day}>{day}</div>
+            ))} */}
+            {DAYS.map((day) => (
+              <div key={day} className={day === "D" ? "text-blue" : ""}>
+                {day}
+              </div>
             ))}
             <hr className="col-span-7 my-2 " />
             {blankDays.map((_, index) => (
@@ -147,7 +152,7 @@ const Calendar: React.FC<CalendarProps> = ({
                         day
                       )
                     ) === 0
-                      ? "text-blue-500"
+                      ? "text-blue"
                       : ""
                   } ${isPastDay ? "invalid-day" : ""}`}
                   onClick={
