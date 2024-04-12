@@ -1,14 +1,27 @@
 import Image from "next/image";
 import { format } from "date-fns";
 import { es } from "date-fns/locale";
-import ButtonAtom from "../atoms/Buttons";
+import ButtonAtom from "../atoms/ButtonsAtom";
 import { CgMathMinus, CgMathPlus } from "react-icons/cg";
 import { CiCircleAlert } from "react-icons/ci";
 import { BiSolidDoorOpen, BiSolidMapPin } from "react-icons/bi";
+import { useState } from "react";
 
 export const CardSell = ({ date, data }: any) => {
   const { address, age, image, name, open, passport, price } = data;
   console.log(data);
+  // Estado para manejar el contador
+  const [count, setCount] = useState(0);
+
+  // Función para incrementar el contador
+  const handleIncrement = () => {
+    setCount((prevCount) => prevCount + 1);
+  };
+
+  // Función para decrementar el contador
+  const handleDecrement = () => {
+    setCount((prevCount) => prevCount - 1);
+  };
   return (
     <>
       <article className="grid grid-cols-[1fr_2fr_1fr] gap-4 rounded-xl p-4 mb-4 bg-black">
@@ -44,9 +57,17 @@ export const CardSell = ({ date, data }: any) => {
             {date ? format(date, "dd MMMM yyyy", { locale: es }) : ""}
           </h3>
           <div className="flex items-center space-x-4">
-            <ButtonAtom icon={CgMathMinus} />
+            {/* <ButtonAtom icon={CgMathMinus} />
             <span>0</span>
-            <ButtonAtom icon={CgMathPlus} active />
+            <ButtonAtom icon={CgMathPlus} active /> */}
+            <ButtonAtom
+              icon={CgMathMinus}
+              active={count > 0}
+              onClick={handleDecrement}
+            />
+            <span>{count}</span>
+            {/* Botón para incrementar */}
+            <ButtonAtom icon={CgMathPlus} active onClick={handleIncrement} />
           </div>
           <p className="text-base font-bold mt-2">$ {price}</p>
           <button className="text-white px-6  rounded-full mt-2 border border-blue">
