@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { CardSell } from "./CardSell";
 
 const CardSellContainer = ({ selectedDate }: any) => {
@@ -20,7 +21,7 @@ const CardSellContainer = ({ selectedDate }: any) => {
         "Dirección: Kilometro 14 vía cerritos,Entrada por la bomba Santa Barbara.",
       open: "Apertura puertas: 8:00 am",
       price: "40.000",
-      image: "/images/suricata.jpg",
+      image: "/images/elephant.jpg",
     },
     {
       name: "Bioparke Ukumari",
@@ -30,28 +31,28 @@ const CardSellContainer = ({ selectedDate }: any) => {
         "Dirección: Kilometro 14 vía cerritos,Entrada por la bomba Santa Barbara.",
       open: "Apertura puertas: 8:00 am",
       price: "40.000",
-      image: "/images/elephant.jpg",
-    },
-    {
-      name: "Bioparke Ukumari",
-      passport: "Pasaporte: Persona con discapacidad o adulto mayor",
-      age: "Edad mínima de ingreso: 5 años",
-      address:
-        "Dirección: Kilometro 14 vía cerritos,Entrada por la bomba Santa Barbara.",
-      open: "Apertura puertas: 8:00 am",
-      price: "40.000",
       image: "/images/suricata.jpg",
     },
-    {
-      name: "Bioparke Ukumari",
-      passport: "Pasaporte: Elefante",
-      age: "Edad mínima de ingreso: 5 años",
-      address:
-        "Dirección: Kilometro 14 vía cerritos,Entrada por la bomba Santa Barbara.",
-      open: "Apertura puertas: 8:00 am",
-      price: "40.000",
-      image: "/images/suricata.jpg",
-    },
+    // {
+    //   name: "Bioparke Ukumari",
+    //   passport: "Pasaporte: Persona con discapacidad o adulto mayor",
+    //   age: "Edad mínima de ingreso: 5 años",
+    //   address:
+    //     "Dirección: Kilometro 14 vía cerritos,Entrada por la bomba Santa Barbara.",
+    //   open: "Apertura puertas: 8:00 am",
+    //   price: "40.000",
+    //   image: "/images/suricata.jpg",
+    // },
+    // {
+    //   name: "Bioparke Ukumari",
+    //   passport: "Pasaporte: Elefante",
+    //   age: "Edad mínima de ingreso: 5 años",
+    //   address:
+    //     "Dirección: Kilometro 14 vía cerritos,Entrada por la bomba Santa Barbara.",
+    //   open: "Apertura puertas: 8:00 am",
+    //   price: "40.000",
+    //   image: "/images/suricata.jpg",
+    // },
   ];
 
   return (
@@ -70,7 +71,7 @@ const CardSellContainer = ({ selectedDate }: any) => {
           </div>
         ))}
       </div>
-      <button>Comprar</button>
+      <Link href="/paymentGateway">Comprar</Link>
     </div>
   );
 };

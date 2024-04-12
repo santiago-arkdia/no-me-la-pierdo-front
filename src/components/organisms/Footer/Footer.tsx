@@ -54,12 +54,27 @@ export const Footer = () => {
       {/*  Logos Redes  Sociales */}
       <div className="inline-flex w-full items-center justify-center">
         <div className="flex justify-center gap-x-6 absolute bg-background px-10">
-          <FaFacebookF size={24} color="#fff" />
-          <FaInstagram size={24} color="#fff" />
-          <FaXTwitter size={24} color="#fff" />
-          <FaYoutube size={24} color="#fff" />
-          <BiLogoTiktok size={24} color="#fff" />
-          <FaDiscord size={24} color="#fff" />
+          <a href="#" className="hover:text-blue">
+            <FaFacebookF size={24} />
+          </a>
+          <a href="#" className="hover:text-blue">
+            <FaInstagram size={24} />
+          </a>
+          <a href="#" className="hover:text-blue">
+            {" "}
+            <FaXTwitter size={24} />
+          </a>
+          <a href="#" className="hover:text-blue">
+            <FaYoutube size={24} />
+          </a>
+          <a href="#" className="hover:text-blue">
+            {" "}
+            <BiLogoTiktok size={24} />
+          </a>
+          <a href="#" className="hover:text-blue">
+            {" "}
+            <FaDiscord size={24} />
+          </a>
         </div>
         <hr className="my-8 h-px w-5/6  sm:mx-auto lg:my-8  " />
       </div>
