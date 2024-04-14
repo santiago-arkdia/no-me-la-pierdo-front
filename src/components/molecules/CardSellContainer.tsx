@@ -71,7 +71,14 @@ const CardSellContainer = ({ selectedDate }: any) => {
           </div>
         ))}
       </div>
-      <Link href="/paymentGateway">Comprar</Link>
+      <div className="flex justify-center ">
+        <Link
+          className="text-white px-20 py-2  rounded-full  border border-blue hover:bg-blue hover:text-black"
+          href="/paymentGateway"
+        >
+          Comprar entradas
+        </Link>
+      </div>
     </div>
   );
 };
