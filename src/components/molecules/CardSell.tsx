@@ -46,17 +46,17 @@ export const CardSell = ({ date, data }: any) => {
           </div>
         </div>
         {/* Tercera columna (fecha, contador y botón) */}
-        <div className="flex flex-col justify-center items-center ">
+        <div className="flex flex-col justify-center items-center mr-2 ">
           <h3
-            className={`text-end font-bold mb-2 ${
-              date && format(date, "dd MMMM yyyy", { locale: es }).length > 13
-                ? "text-2xl"
-                : "text-3xl"
+            className={`text-end font-bold mb-4 ${
+              date && format(date, "dd MMMM yyyy", { locale: es }).length > 12
+                ? "text-3xl"
+                : "text-2xl"
             }`}
           >
             {date ? format(date, "dd MMMM yyyy", { locale: es }) : ""}
           </h3>
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-4 mb-4">
             {/* <ButtonAtom icon={CgMathMinus} />
             <span>0</span>
             <ButtonAtom icon={CgMathPlus} active /> */}
@@ -69,10 +69,10 @@ export const CardSell = ({ date, data }: any) => {
             {/* Botón para incrementar */}
             <ButtonAtom icon={CgMathPlus} active onClick={handleIncrement} />
           </div>
-          <p className="text-base font-bold mt-2">$ {price}</p>
-          <button className="text-white px-6  rounded-full mt-2 border border-blue">
+          <p className="text-base font-bold mb-2">$ {price}</p>
+          {/* <button className="text-white px-6  rounded-full mt-2 border border-blue">
             Comprar
-          </button>
+          </button> */}
         </div>
       </article>
     </>

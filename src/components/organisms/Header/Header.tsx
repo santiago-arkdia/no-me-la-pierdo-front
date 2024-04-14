@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { SubMenuHeader } from "app/components/molecules/SubMenuHeader";
 import Image from "next/image";
+import Modal from "app/components/molecules/ModalLogin";
 
 export const Header = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -19,6 +20,11 @@ export const Header = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  const [isModalOpen, setModalOpen] = useState(false);
+
+  const openModal = () => setModalOpen(true);
+  const closeModal = () => setModalOpen(false);
 
   return (
     <header
@@ -64,19 +70,29 @@ export const Header = () => {
           <div className="flex-1"></div>
 
           {/* Secondary nav */}
-          <div className="hidden md:flex items-center space-x-1 text-lg font-bold tracking-widest">
+          {/* <div className="hidden md:flex items-center space-x-1 text-lg font-bold tracking-widest">
             <a
               href="/login"
               className="py-2 px-3 mr-5 rounded-md transition duration-300 hover:bg-blue"
             >
               Iniciar sesión
             </a>
-            {/* <a
+             <a
               href=""
               className="py-2 px-3 bg-blue rounded-lg transition duration-300"
             >
               Regístrate
-            </a> */}
+            </a> 
+          </div> */}
+          <div className="hidden md:flex items-center space-x-1 text-lg font-bold tracking-widest">
+            <button
+              onClick={openModal}
+              className="py-2 px-3 mr-5 rounded-md transition duration-300 hover:bg-blue"
+            >
+              Iniciar sesión
+            </button>
+            {/* Aquí puedes agregar otros elementos si es necesario */}
+            <Modal isOpen={isModalOpen} onClose={closeModal} />
           </div>
 
           {/* Mobile button */}
