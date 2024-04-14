@@ -7,7 +7,7 @@ export default function Login() {
       {/* Columna con imagen */}
       <div className="w-1/2 relative hidden lg:block">
         <Image
-          src="/image/jitafa.jpg"
+          src="/images/jirafa.jpg"
           alt="Imagen de fondo"
           layout="fill"
           objectFit="cover"
@@ -17,11 +17,10 @@ export default function Login() {
       {/* Columna del formulario de login */}
       <div className="w-full lg:w-1/2 flex flex-col justify-center items-center px-8">
         <div className="w-full max-w-md">
-          <img src="/tu-logo.png" alt="Logo" className="mx-auto h-12 w-auto" />
+          <img src="/logo.svg" alt="Logo" className="mx-auto h-12 w-auto" />
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
             Inicia sesión
           </h2>
-
           {/* Formulario */}
           <form className="mt-8 space-y-6" action="#" method="POST">
             <input type="hidden" name="remember" value="true" />
@@ -53,6 +52,7 @@ export default function Login() {
                   className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   placeholder="Contraseña"
                 />
+                <p>¿Olvidaste tu contraseña?</p>
               </div>
             </div>
 

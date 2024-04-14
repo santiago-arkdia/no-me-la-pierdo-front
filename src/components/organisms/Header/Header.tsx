@@ -66,7 +66,7 @@ export const Header = () => {
           {/* Secondary nav */}
           <div className="hidden md:flex items-center space-x-1 text-lg font-bold tracking-widest">
             <a
-              href=""
+              href="/login"
               className="py-2 px-3 mr-5 rounded-md transition duration-300 hover:bg-blue"
             >
               Iniciar sesión
