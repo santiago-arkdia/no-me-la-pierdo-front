@@ -1,7 +1,10 @@
+"use client";
 import ButtonAtom from "app/components/atoms/ButtonsAtom";
 import { TableProductSell } from "app/components/atoms/TableProductSell";
 import { TableProductTotal } from "app/components/atoms/TableProductTotal";
+import { ModalSell } from "app/components/molecules/ModalSell";
 import Image from "next/image";
+import { useState } from "react";
 import { BiCategory } from "react-icons/bi";
 import { CgMathPlus } from "react-icons/cg";
 import { CiCircleAlert } from "react-icons/ci";
@@ -10,6 +13,11 @@ import { IoMdCalendar } from "react-icons/io";
 import { PiMapPinLineFill } from "react-icons/pi";
 
 export default function PaymentGateway() {
+  const [isModalOpen, setModalOpen] = useState(false);
+
+  const openModal = () => setModalOpen(true);
+  const closeModal = () => setModalOpen(false);
+
   return (
     <section className="mx-auto  w-3/4 rounded-lg bg-black p-14 shadow-lg shadow-cyan-500/50">
       {/* Imagen e info del parque */}
@@ -255,9 +263,13 @@ export default function PaymentGateway() {
       </div>
 
       <div className="flex justify-center items-center">
-        <button className="border px-24 py-2 rounded-full border-blue text-blue hover:bg-blue hover:text-black">
+        <button
+          onClick={openModal}
+          className="border px-24 py-2 rounded-full border-blue text-blue hover:bg-blue hover:text-black"
+        >
           Pagar
         </button>
+        <ModalSell isOpen={isModalOpen} onClose={closeModal} />
       </div>
     </section>
   );
