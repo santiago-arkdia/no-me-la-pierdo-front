@@ -1,27 +1,3 @@
-// import Login from "app/app/login/page";
-
-// function Modal({ isOpen, onClose }: any) {
-//   if (!isOpen) return null;
-
-//   return (
-//     <div className="fixed inset-0 bg-black bg-opacity-50 z-40 flex justify-center items-center">
-//       <div className="bg-background p-4 rounded-lg shadow-lg w-4/5 h-3/4  relative">
-//         <button
-//           onClick={onClose}
-//           className="absolute right-4 top-4 px-4 py-2 bg-red-500 text-white rounded z-50"
-//         >
-//           x
-//         </button>
-//         <div className="h-full">
-//           <Login />
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default Modal;
-
 import React from "react";
 import Login from "app/app/login/page";
 

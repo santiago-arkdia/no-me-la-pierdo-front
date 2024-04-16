@@ -19,7 +19,7 @@ export default function PaymentGateway() {
   const closeModal = () => setModalOpen(false);
 
   return (
-    <section className="mx-auto  w-3/4 rounded-lg bg-black p-14 shadow-lg shadow-cyan-500/50">
+    <section className="mx-auto  w-3/4 rounded-lg bg-black p-14 shadow-xl  shadow-black/50">
       {/* Imagen e info del parque */}
       <div className="mb-6">
         <div className="flex  gap-4 mb-8 ">
@@ -86,76 +86,6 @@ export default function PaymentGateway() {
         </div>
         <div className=" ">
           <div className="relative overflow-x-auto">
-            {/* <table className="w-full text-sm text-left rtl:text-right">
-              <thead className="text-base uppercase">
-                <tr>
-                  <th
-                    scope="col"
-                    className="px-6 py-3 border-b-2 border-gray-200"
-                  >
-                    Descripción
-                  </th>
-                  <th
-                    scope="col"
-                    className="px-6 py-3 border-b-2 border-gray-200"
-                  >
-                    Cantidad
-                  </th>
-                  <th
-                    scope="col"
-                    className="px-6 py-3 border-b-2 border-gray-200"
-                  >
-                    Valor
-                  </th>
-                  <th
-                    scope="col"
-                    className="px-6 py-3 border-b-2 border-gray-200"
-                  ></th>
-                </tr>
-              </thead>
-
-              <tbody className="text-base">
-                <tr className=" border-b ">
-                  <th
-                    scope="row"
-                    className="px-6 py-4 font-medium  whitespace-nowrap"
-                  >
-                    Apple MacBook Pro 17
-                  </th>
-                  <td className="px-6 py-4">Silver</td>
-                  <td className="px-6 py-4">1000</td>
-                  <td className="px-6 py-4">
-                    <ButtonAtom icon={CgMathPlus} active />
-                  </td>
-                </tr>
-                <tr className="border-b dark:bg-gray-800 dark:border-gray-700">
-                  <th
-                    scope="row"
-                    className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                  >
-                    Microsoft Surface Pro
-                  </th>
-                  <td className="px-6 py-4">White</td>
-                  <td className="px-6 py-4">1000</td>
-                  <td className="px-6 py-4">
-                    <ButtonAtom icon={CgMathPlus} active />
-                  </td>
-                </tr>
-                <tr className=" dark:bg-gray-800">
-                  <th
-                    scope="row"
-                    className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                  >
-                    Magic Mouse 2
-                  </th>
-                  <td className="px-6 py-4">Black</td>
-                  <td className="px-6 py-4">1000</td>
-                  <td className="px-6 py-4">
-                    <ButtonAtom icon={CgMathPlus} active />
-                  </td>
-                </tr>
-              </tbody>
-            </table> */}
             <table className="w-full text-sm text-left rtl:text-right">
               <thead className="text-base uppercase">
                 <tr>
@@ -204,34 +134,36 @@ export default function PaymentGateway() {
         <h2 className="text-center text-3xl">Ingresa tus datos</h2>
         <div className="flex flex-wrap justify-between w-[500px] mx-auto text-sm text-blue">
           <div className="w-full sm:w-1/2 p-2 ">
-            <label htmlFor="input1">Título 1</label>
+            <label htmlFor="client_name">Nombre completo</label>
             <input
-              id="input1"
+              id="client_name"
               type="text"
               className="bg-transparent border px-4  py-2 rounded shadow-md text-white"
             />
           </div>
           <div className="w-full sm:w-1/2 p-2">
-            <label htmlFor="input2">Título 2</label>
+            <label htmlFor="client_document_number">
+              Número de identificación
+            </label>
             <input
-              id="input2"
-              type="text"
+              id="client_document_number"
+              type="number"
               className="bg-transparent border px-4 py-2 rounded shadow-md text-white"
             />
           </div>
           <div className="w-full sm:w-1/2 p-2">
-            <label htmlFor="input3">Título 3</label>
+            <label htmlFor="client_email">Correo electrónico</label>
             <input
-              id="input3"
-              type="text"
+              id="client_email"
+              type="email"
               className="bg-transparent border px-4 py-2 rounded shadow-md text-white"
             />
           </div>
           <div className="w-full sm:w-1/2 p-2">
-            <label htmlFor="input4">Título 4</label>
+            <label htmlFor="client_phone">Teléfono</label>
             <input
-              id="input4"
-              type="text"
+              id="client_phone"
+              type="number"
               className="bg-transparent border px-4 py-2 rounded shadow-md text-white"
             />
           </div>
@@ -243,7 +175,7 @@ export default function PaymentGateway() {
           </label>
           <select
             required
-            name="metodos-pago"
+            name="payment_method"
             id="payment"
             className="bg-transparent focus:ring-2 focus:outline-none focus:ring-blue font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center border shadow-md"
           >
@@ -265,7 +197,7 @@ export default function PaymentGateway() {
       <div className="flex justify-center items-center">
         <button
           onClick={openModal}
-          className="border px-24 py-2 rounded-full border-blue text-blue hover:bg-blue hover:text-black"
+          className="border px-24 py-2 rounded-full border-blue hover:text-black hover:bg-blue "
         >
           Pagar
         </button>

@@ -10,7 +10,7 @@ const CardSellContainer = ({ selectedDate }: any) => {
       address:
         "Dirección: Kilometro 14 vía cerritos,Entrada por la bomba Santa Barbara.",
       open: "Apertura puertas: 8:00 am",
-      price: "40.000",
+      price: "40000",
       image: "/images/jirafa.jpg",
     },
     {
@@ -20,7 +20,7 @@ const CardSellContainer = ({ selectedDate }: any) => {
       address:
         "Dirección: Kilometro 14 vía cerritos,Entrada por la bomba Santa Barbara.",
       open: "Apertura puertas: 8:00 am",
-      price: "40.000",
+      price: "40000",
       image: "/images/elephant.jpg",
     },
     {
@@ -30,7 +30,7 @@ const CardSellContainer = ({ selectedDate }: any) => {
       address:
         "Dirección: Kilometro 14 vía cerritos,Entrada por la bomba Santa Barbara.",
       open: "Apertura puertas: 8:00 am",
-      price: "40.000",
+      price: "40000",
       image: "/images/suricata.jpg",
     },
     // {

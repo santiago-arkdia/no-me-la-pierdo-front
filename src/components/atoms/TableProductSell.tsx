@@ -13,10 +13,10 @@ export const TableProductSell = () => {
         Apple MacBook Pro 17
       </th>
       <td className="px-6 py-4" style={{ width: "16.66%" }}>
-        Silver
+        <ButtonAtom icon={CgMathMinus} /> 1000 <ButtonAtom icon={CgMathPlus} />
       </td>
       <td className="px-6 py-4" style={{ width: "16.66%" }}>
-        <ButtonAtom icon={CgMathMinus} /> 1000 <ButtonAtom icon={CgMathPlus} />
+        Silver
       </td>
       <td className="px-6 py-4" style={{ width: "16.66%" }}>
         <ButtonAtom icon={IoMdClose} />
