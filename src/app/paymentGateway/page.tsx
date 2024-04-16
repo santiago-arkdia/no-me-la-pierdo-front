@@ -4,7 +4,7 @@ import { TableProductSell } from "app/components/atoms/TableProductSell";
 import { TableProductTotal } from "app/components/atoms/TableProductTotal";
 import { ModalSell } from "app/components/molecules/ModalSell";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BiCategory } from "react-icons/bi";
 import { CgMathPlus } from "react-icons/cg";
 import { CiCircleAlert } from "react-icons/ci";
@@ -18,6 +18,20 @@ export default function PaymentGateway() {
   const openModal = () => setModalOpen(true);
   const closeModal = () => setModalOpen(false);
 
+  // En tu componente de pasarela de pago
+  const [ticketsData, setTicketsData] = useState({});
+
+  useEffect(() => {
+    const tickets = localStorage.getItem("selectedTickets");
+    const loadedTickets = tickets ? JSON.parse(tickets) : {};
+    setTicketsData(loadedTickets); // Establece los datos recuperados en el estado
+  }, []);
+
+  console.log("ticketsData", ticketsData);
+
+  const updateTicketsData = (updatedTickets: any) => {
+    setTicketsData(updatedTickets);
+  };
   return (
     <section className="mx-auto  w-3/4 rounded-lg bg-black p-14 shadow-xl  shadow-black/50">
       {/* Imagen e info del parque */}
@@ -119,9 +133,15 @@ export default function PaymentGateway() {
               </thead>
 
               <tbody className="text-base">
-                <TableProductSell />
-                <TableProductSell />
+                {Object.values(ticketsData).map((ticket, index) => (
+                  <TableProductSell
+                    key={index}
+                    ticket={ticket}
+                    updateTicketsData={updateTicketsData}
+                  />
+                ))}
                 <TableProductTotal />
+                {/* ticketsData={ticketsData} */}
               </tbody>
             </table>
           </div>

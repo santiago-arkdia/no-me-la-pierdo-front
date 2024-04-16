@@ -1,4 +1,6 @@
+"use client";
 import Image from "next/image";
+import { useEffect } from "react";
 import { format } from "date-fns";
 import { es } from "date-fns/locale";
 import ButtonAtom from "../atoms/ButtonsAtom";
@@ -9,7 +11,7 @@ import { useState } from "react";
 
 export const CardSell = ({ date, data }: any) => {
   const { address, age, image, name, open, passport, price } = data;
-  console.log(data);
+  // console.log(data);
   // Estado para manejar el contador
   const [count, setCount] = useState(0);
 
@@ -22,6 +24,33 @@ export const CardSell = ({ date, data }: any) => {
   const handleDecrement = () => {
     setCount((prevCount) => prevCount - 1);
   };
+
+  useEffect(() => {
+    const saveToLocalStorage = () => {
+      let events;
+      try {
+        events = JSON.parse(localStorage.getItem("selectedTickets") || "{}");
+      } catch (error) {
+        console.error("Error parsing JSON from localStorage:", error);
+        events = {}; // En caso de error, reinicia el objeto
+      }
+
+      if (count > 0) {
+        events[passport] = {
+          count,
+          price,
+          name: passport, // Puede ser mejor usar un campo `name` si está disponible
+          date,
+        };
+      } else {
+        delete events[passport];
+      }
+
+      localStorage.setItem("selectedTickets", JSON.stringify(events));
+    };
+
+    saveToLocalStorage();
+  }, [count, passport, price, date]); // Dependencias completas
   return (
     <>
       <article className="grid grid-cols-[1fr_2fr_1fr] gap-4 rounded-xl p-4 mb-4 bg-black">

@@ -33,26 +33,6 @@ const CardSellContainer = ({ selectedDate }: any) => {
       price: "40000",
       image: "/images/suricata.jpg",
     },
-    // {
-    //   name: "Bioparke Ukumari",
-    //   passport: "Pasaporte: Persona con discapacidad o adulto mayor",
-    //   age: "Edad mínima de ingreso: 5 años",
-    //   address:
-    //     "Dirección: Kilometro 14 vía cerritos,Entrada por la bomba Santa Barbara.",
-    //   open: "Apertura puertas: 8:00 am",
-    //   price: "40.000",
-    //   image: "/images/suricata.jpg",
-    // },
-    // {
-    //   name: "Bioparke Ukumari",
-    //   passport: "Pasaporte: Elefante",
-    //   age: "Edad mínima de ingreso: 5 años",
-    //   address:
-    //     "Dirección: Kilometro 14 vía cerritos,Entrada por la bomba Santa Barbara.",
-    //   open: "Apertura puertas: 8:00 am",
-    //   price: "40.000",
-    //   image: "/images/suricata.jpg",
-    // },
   ];
 
   return (
