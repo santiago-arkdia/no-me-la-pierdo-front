@@ -57,9 +57,6 @@ export const CardSell = ({ date, data }: any) => {
             {date ? format(date, "dd MMMM yyyy", { locale: es }) : ""}
           </h3>
           <div className="flex items-center space-x-4 mb-4">
-            {/* <ButtonAtom icon={CgMathMinus} />
-            <span>0</span>
-            <ButtonAtom icon={CgMathPlus} active /> */}
             <ButtonAtom
               icon={CgMathMinus}
               active={count > 0}
@@ -69,10 +66,9 @@ export const CardSell = ({ date, data }: any) => {
             {/* Botón para incrementar */}
             <ButtonAtom icon={CgMathPlus} active onClick={handleIncrement} />
           </div>
-          <p className="text-base font-bold mb-2">$ {price}</p>
-          {/* <button className="text-white px-6  rounded-full mt-2 border border-blue">
-            Comprar
-          </button> */}
+          <p className="text-base font-bold mb-2">
+            $ {count === 0 ? price : price * count}
+          </p>
         </div>
       </article>
     </>

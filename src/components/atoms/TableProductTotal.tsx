@@ -12,10 +12,10 @@ export const TableProductTotal = () => {
       >
         Apple MacBook Pro 17
       </th>
-      <td className="px-6 py-4" style={{ width: "16.66%" }}>
-        Silver
+      <td className="px-6 py-4 " style={{ width: "16.66%" }}>
+        1
       </td>
-      <td className="px-6 py-4 text-center" style={{ width: "16.66%" }}>
+      <td className="px-6 py-4 " style={{ width: "16.66%" }}>
         1000
       </td>
     </tr>
