@@ -16,6 +16,7 @@ const config: Config = {
         white: "var(--white)",
         blue: "var(--blue)",
         gray: "var(--gray)",
+        gray200: "var(--gray-200)",
       },
       // backgroundImage: {
       //   "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
