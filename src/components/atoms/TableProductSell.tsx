@@ -1,66 +1,134 @@
-"use client";
+// import { CgMathMinus, CgMathPlus } from "react-icons/cg";
+// import ButtonAtom from "./ButtonsAtom";
+// import { IoMdClose } from "react-icons/io";
+
+// export const TableProductSell = ({ item }: any) => {
+//   const { name, price, id, quantity } = item;
+//   console.log(item);
+//   return (
+//     <tr className="border-b">
+//       <th
+//         scope="row"
+//         className="px-6 py-4 font-medium  whitespace-nowrap pl-20"
+//         style={{ width: "50%" }}
+//       >
+//         {name}
+//       </th>
+//       <td className="px-6 py-4" style={{ width: "16.66%" }}>
+//         <ButtonAtom icon={CgMathMinus} /> {quantity}{" "}
+//         <ButtonAtom icon={CgMathPlus} />
+//       </td>
+//       <td className="px-6 py-4" style={{ width: "16.66%" }}>
+//         {price * quantity}
+//       </td>
+//       <td className="px-6 py-4" style={{ width: "16.66%" }}>
+//         <ButtonAtom icon={IoMdClose} />
+//       </td>
+//     </tr>
+//   );
+// };
+
+// import { CgMathMinus, CgMathPlus } from "react-icons/cg";
+// import ButtonAtom from "./ButtonsAtom";
+// import { IoMdClose } from "react-icons/io";
+// import { useEffect, useState } from "react";
+// import { useShoppingCart } from "app/hooks/useShoppingCart";
+
+// export const TableProductSell = ({ item }: any) => {
+//   const { name, price, id, quantity } = item;
+//   console.log(item);
+//   const [quantityItem, setQuantityItem] = useState(quantity);
+
+//   const handleIncreaseQuantity = () => {
+//     setQuantityItem(quantityItem + 1);
+//   };
+
+//   const handleDecreaseQuantity = () => {
+//     if (quantityItem > 0) {
+//       setQuantityItem(quantityItem - 1);
+//     }
+//   };
+
+//   const { addToCart } = useShoppingCart();
+
+//   useEffect(() => {
+//     if (quantityItem > 0) {
+//       addToCart({ id, name, price, quantity: quantityItem });
+//     } else {
+//       addToCart({ id, name, price, quantity: 0 });
+//     }
+//   }, [quantityItem, id, name, price, addToCart]);
+
+//   // const handleRemoveProduct = () => {
+//   //   onRemove(item.id); // Esta función tendría que ser pasada por el componente padre si necesitas que este item sea removido de una lista más grande
+//   // };
+//   return (
+//     <tr className="border-b">
+//       <th
+//         scope="row"
+//         className="px-6 py-4 font-medium whitespace-nowrap pl-20"
+//         style={{ width: "50%" }}
+//       >
+//         {item.name}
+//       </th>
+//       <td className="px-6 py-4" style={{ width: "16.66%" }}>
+//         <ButtonAtom
+//           icon={CgMathMinus}
+//           onClick={handleDecreaseQuantity}
+//           active={quantityItem > 0}
+//         />{" "}
+//         {quantityItem}{" "}
+//         <ButtonAtom icon={CgMathPlus} onClick={handleIncreaseQuantity} active />
+//       </td>
+//       <td className="px-6 py-4" style={{ width: "16.66%" }}>
+//         ${item.price * quantityItem}
+//       </td>
+//       <td className="px-6 py-4" style={{ width: "16.66%" }}>
+//         <ButtonAtom icon={IoMdClose} />
+//         {/* onClick={handleRemoveProduct} */}
+//       </td>
+//     </tr>
+//   );
+// };
+
 import { CgMathMinus, CgMathPlus } from "react-icons/cg";
 import ButtonAtom from "./ButtonsAtom";
 import { IoMdClose } from "react-icons/io";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useShoppingCart } from "app/hooks/useShoppingCart";
 
-export const TableProductSell = ({ ticket, updateTicketsData }: any) => {
-  const { count, date, name, price } = ticket;
-  console.log("TableProductSell", ticket);
+export const TableProductSell = ({ item }: any) => {
+  const { name, price, id, quantity } = item;
+  const [quantityItem, setQuantityItem] = useState(quantity);
+  const { addToCart, removeFromCart } = useShoppingCart();
 
-  const [countT, setCountT] = useState(count);
+  const handleIncreaseQuantity = () => {
+    setQuantityItem(quantityItem + 1);
+  };
 
-  const updateLocalStorage = (newCount: number) => {
-    const tickets = JSON.parse(localStorage.getItem("selectedTickets") || "{}");
-
-    // Actualizar el conteo del ticket actual
-    if (tickets[name]) {
-      tickets[name].count = newCount;
-      localStorage.setItem("selectedTickets", JSON.stringify(tickets));
-      updateTicketsData(tickets); // Esto también actualizará el estado global si es necesario
+  const handleDecreaseQuantity = () => {
+    if (quantityItem > 0) {
+      setQuantityItem(quantityItem - 1);
     }
   };
 
-  // // Función para incrementar el contador
-  // const handleIncrement = () => {
-  //   setCountT((prevCount: number) => prevCount + 1);
-  // };
-
-  // // Función para decrementar el contador
-  // const handleDecrement = () => {
-  //   setCountT((prevCount: number) => prevCount - 1);
-  // };
-
-  const handleIncrement = () => {
-    setCountT((prevCount: number) => {
-      const newCount = prevCount + 1;
-      updateLocalStorage(newCount); // Actualizar localStorage
-      return newCount;
-    });
+  const handleRemoveProduct = () => {
+    removeFromCart(id);
   };
 
-  const handleDecrement = () => {
-    setCountT((prevCount: number) => {
-      const newCount = prevCount - 1;
-      updateLocalStorage(newCount); // Actualizar localStorage
-      return newCount;
-    });
-  };
-  const handleRemoveTicket = () => {
-    const tickets = JSON.parse(localStorage.getItem("selectedTickets") || "{}");
-
-    // Suponiendo que `name` es la clave única para identificar un ticket
-    if (tickets[ticket.name]) {
-      delete tickets[ticket.name];
-      localStorage.setItem("selectedTickets", JSON.stringify(tickets));
-      updateTicketsData(tickets); // Actualiza el estado usando la prop pasada
+  useEffect(() => {
+    if (quantityItem > 0) {
+      addToCart({ id, name, price, quantity: quantityItem });
+    } else {
+      addToCart({ id, name, price, quantity: 0 });
     }
-  };
+  }, [quantityItem, id, name, price, addToCart]);
+
   return (
     <tr className="border-b">
       <th
         scope="row"
-        className="px-6 py-4 font-medium  whitespace-nowrap pl-20"
+        className="px-6 py-4 font-medium whitespace-nowrap pl-20"
         style={{ width: "50%" }}
       >
         {name}
@@ -68,17 +136,17 @@ export const TableProductSell = ({ ticket, updateTicketsData }: any) => {
       <td className="px-6 py-4" style={{ width: "16.66%" }}>
         <ButtonAtom
           icon={CgMathMinus}
-          active={countT > 0}
-          onClick={handleDecrement}
-        />{" "}
-        {countT}{" "}
-        <ButtonAtom icon={CgMathPlus} active onClick={handleIncrement} />
+          onClick={handleDecreaseQuantity}
+          active={quantityItem > 0}
+        />
+        {quantityItem}
+        <ButtonAtom icon={CgMathPlus} onClick={handleIncreaseQuantity} active />
       </td>
       <td className="px-6 py-4" style={{ width: "16.66%" }}>
-        {price * countT}
+        ${price * quantityItem}
       </td>
       <td className="px-6 py-4" style={{ width: "16.66%" }}>
-        <ButtonAtom icon={IoMdClose} active onClick={handleRemoveTicket} />
+        <ButtonAtom icon={IoMdClose} onClick={handleRemoveProduct} active />
       </td>
     </tr>
   );

@@ -2,7 +2,8 @@ import { CgMathMinus, CgMathPlus } from "react-icons/cg";
 import ButtonAtom from "./ButtonsAtom";
 import { IoMdClose } from "react-icons/io";
 
-export const TableProductTotal = () => {
+export const TableProductTotal = ({ total, totalItems }: any) => {
+  console.log(total);
   return (
     <tr className="border-b text-blue">
       <th
@@ -10,13 +11,13 @@ export const TableProductTotal = () => {
         className="px-6 py-4 font-medium  whitespace-nowrap pl-20"
         style={{ width: "50%" }}
       >
-        Apple MacBook Pro 17
+        Total
       </th>
       <td className="px-6 py-4 " style={{ width: "16.66%" }}>
-        1
+        {totalItems}
       </td>
       <td className="px-6 py-4 " style={{ width: "16.66%" }}>
-        1000
+        {total}
       </td>
     </tr>
   );
