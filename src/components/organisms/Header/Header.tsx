@@ -82,7 +82,7 @@ export const Header = () => {
               className="py-2 px-3 bg-blue rounded-lg transition duration-300"
             >
               Regístrate
-            </a> 
+            </a>
           </div> */}
           <div className="hidden md:flex items-center space-x-1 text-lg font-bold tracking-widest">
             <button
@@ -120,3 +120,46 @@ export const Header = () => {
     </header>
   );
 };
+// import Image from "next/image";
+// import React from "react";
+
+// export const Header = () => {
+//   return (
+//     <header className="bg-white shadow-md py-4 fixed top-0 left-0 right-0 z-50">
+//       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+//         {/* Logo y título centralizados */}
+//         <div className="hidden md:flex flex-1 justify-center items-center">
+//           <a href="/" className="flex items-center">
+//             <Image src="/logo.svg" alt="Logo" width={100} height={50} />
+//           </a>
+//           <h1 className="ml-4 text-xl font-semibold">Inicio</h1>
+//         </div>
+
+//         {/* Botón al final */}
+//         <div className="flex-1 flex justify-end">
+//           <button className="bg-blue-500 text-white px-6 py-2 rounded-lg">
+//             Botón
+//           </button>
+//         </div>
+
+//         {/* Icono de menú para móviles */}
+//         <div className="md:hidden">
+//           <svg
+//             xmlns="http://www.w3.org/2000/svg"
+//             className="h-6 w-6"
+//             fill="none"
+//             viewBox="0 0 24 24"
+//             stroke="currentColor"
+//             strokeWidth={2}
+//           >
+//             <path
+//               strokeLinecap="round"
+//               strokeLinejoin="round"
+//               d="M4 6h16M4 12h16m-7 6h7"
+//             />
+//           </svg>
+//         </div>
+//       </div>
+//     </header>
+//   );
+// };
