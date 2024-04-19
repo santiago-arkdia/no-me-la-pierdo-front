@@ -102,7 +102,9 @@ const Calendar: React.FC<CalendarProps> = ({
 
   return (
     <>
-      <div className="mx-auto max-w-md font-normal text-sm w-96 h-96 bg-black rounded-xl flex flex-col mt-4">
+      {/* <div className="mx-auto max-w-md font-normal text-sm w-96 h-96 bg-black rounded-xl flex flex-col mt-4"> */}
+      {/* <div className=" font-normal text-sm w-96 h-96 bg-black rounded-xl flex flex-col mt-4 "> */}
+      <div className="max-md:mx-auto min-h-96   font-normal text-sm w-96 h-96 bg-black rounded-xl flex flex-col mt-4 ">
         <div className="p-4 rounded shadow">
           <div className="flex   items-center justify-between  mb-8">
             <button onClick={decrement}>
