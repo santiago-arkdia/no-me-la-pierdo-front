@@ -4,9 +4,11 @@ import React, { useState, useEffect } from "react";
 import { SubMenuHeader } from "app/components/molecules/SubMenuHeader";
 import Image from "next/image";
 import Modal from "app/components/molecules/ModalLogin";
+import useAuth from "app/hooks/useAuth";
 
 export const Header = () => {
   const [scrolled, setScrolled] = useState(false);
+  const user = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -85,12 +87,20 @@ export const Header = () => {
             </a>
           </div> */}
           <div className="hidden md:flex items-center space-x-1 text-lg font-bold tracking-widest">
-            <button
-              onClick={openModal}
-              className="py-2 px-3 mr-5 rounded-md transition duration-300 hover:bg-blue"
-            >
-              Iniciar sesión
-            </button>
+            {user.user?.id ? (
+              <div>
+                <h1>Bienvenido, {user.user.name}!</h1>
+                <p>Tu email es: {user.user.email}</p>
+              </div>
+            ) : (
+              <button
+                onClick={openModal}
+                className="py-2 px-3 mr-5 rounded-md transition duration-300 hover:bg-blue"
+              >
+                Iniciar sesión
+              </button>
+            )}
+
             {/* Aquí puedes agregar otros elementos si es necesario */}
             <Modal isOpen={isModalOpen} onClose={closeModal} />
           </div>
