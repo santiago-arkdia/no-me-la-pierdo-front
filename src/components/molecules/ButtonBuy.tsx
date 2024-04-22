@@ -10,6 +10,7 @@ export const ButtonBuy = () => {
     if (typeof window !== "undefined") {
       //   const token = window.localStorage.getItem("accessToken");
       setIsAuthenticated(!!token);
+      console.log("token", token);
     }
   }, [token]);
   return (
@@ -21,11 +22,10 @@ export const ButtonBuy = () => {
         >
           Comprar entradas
         </Link>
-      ) : (
-        <p className="text-white px-20 py-2 rounded-full border border-blue hover:bg-red-500 hover:text-black">
-          Comprar entradas
-        </p>
-      )}
+      ) : // <p className="text-white px-20 py-2 rounded-full border border-blue hover:bg-red-500 hover:text-black">
+      //   Comprar entradas
+      // </p>
+      null}
     </>
   );
 };

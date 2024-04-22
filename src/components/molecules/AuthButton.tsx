@@ -55,7 +55,7 @@ import useAuth from "app/hooks/useAuth";
 export const AuthButton = () => {
   const [isModalOpen, setModalOpen] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const { user, logout } = useAuth();
+  const { user, logout, userChanged } = useAuth();
   const token = window.localStorage.getItem("accessToken");
 
   useEffect(() => {
@@ -63,12 +63,14 @@ export const AuthButton = () => {
       //   const token = window.localStorage.getItem("accessToken");
       setIsAuthenticated(!!token);
     }
+    console.log("Efecto", token);
   }, [token]);
 
   const openModal = () => setModalOpen(true);
   const closeModal = () => setModalOpen(false);
 
   const handleLogout = () => {
+    console.log("Log Out");
     logout();
     setModalOpen(false);
     setIsAuthenticated(false);

@@ -1,6 +1,7 @@
 import React from "react";
 
 function ModalLogout({ isOpen, onClose, handleLogout }: any) {
+  console.log("Estoy en el modal logout");
   if (!isOpen) return null;
 
   // Función para manejar el clic fuera del contenido del modal

@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useState, useEffect } from "react";
 import { SubMenuHeader } from "app/components/molecules/SubMenuHeader";
 import Image from "next/image";
@@ -10,10 +9,6 @@ import { AuthButton } from "app/components/molecules/AuthButton";
 
 export const Header = () => {
   const [scrolled, setScrolled] = useState(false);
-  const { user, logout, userChanged } = useAuth();
-  const handleLogout = () => {
-    logout(); // Llama a la función logout al hacer clic en el botón de cerrar sesión
-  };
 
   useEffect(() => {
     const handleScroll = () => {

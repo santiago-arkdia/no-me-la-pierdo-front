@@ -156,9 +156,6 @@ const CardSellContainer = ({ selectedDate }: any) => {
       });
   }, []);
 
-  const { user, logout, userChanged } = useAuth();
-  useEffect(() => {}, [userChanged]);
-
   return (
     <div className="w-11/12 p-4">
       <div
