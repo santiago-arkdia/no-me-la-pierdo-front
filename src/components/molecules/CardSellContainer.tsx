@@ -126,10 +126,13 @@
 // };
 
 // export default CardSellContainer;
+"use client";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { CardSell } from "./CardSell";
 import { LoaderCardHome } from "../atoms/LoaderCardHome";
+import useAuth from "app/hooks/useAuth";
+import { ButtonBuy } from "./ButtonBuy";
 
 const CardSellContainer = ({ selectedDate }: any) => {
   const [cardData, setCardData] = useState([]);
@@ -152,6 +155,9 @@ const CardSellContainer = ({ selectedDate }: any) => {
         setIsLoading(false); // Actualiza el estado de carga incluso si hay un error
       });
   }, []);
+
+  const { user, logout, userChanged } = useAuth();
+  useEffect(() => {}, [userChanged]);
 
   return (
     <div className="w-11/12 p-4">
@@ -178,12 +184,7 @@ const CardSellContainer = ({ selectedDate }: any) => {
         )}
       </div>
       <div className="flex justify-center">
-        <Link
-          className="text-white px-20 py-2 rounded-full border border-blue hover:bg-blue hover:text-black"
-          href="/paymentGateway"
-        >
-          Comprar entradas
-        </Link>
+        <ButtonBuy />
       </div>
     </div>
   );

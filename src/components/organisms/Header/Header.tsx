@@ -5,10 +5,15 @@ import { SubMenuHeader } from "app/components/molecules/SubMenuHeader";
 import Image from "next/image";
 import Modal from "app/components/molecules/ModalLogin";
 import useAuth from "app/hooks/useAuth";
+import ModalLogout from "app/components/molecules/ModalLogout";
+import { AuthButton } from "app/components/molecules/AuthButton";
 
 export const Header = () => {
   const [scrolled, setScrolled] = useState(false);
-  const user = useAuth();
+  const { user, logout, userChanged } = useAuth();
+  const handleLogout = () => {
+    logout(); // Llama a la función logout al hacer clic en el botón de cerrar sesión
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -87,10 +92,30 @@ export const Header = () => {
             </a>
           </div> */}
           <div className="hidden md:flex items-center space-x-1 text-lg font-bold tracking-widest">
-            {user.user?.id ? (
+            {/* {user.user?.id ? (
+              <button
+                className="py-2 px-3 mr-5 rounded-md transition duration-300 bg-red-400 hover:bg-red-600"
+                onClick={user.logout} // Cambiado a user.logout
+              >
+                Cerrar sesión
+              </button>
+            ) : (
+              <button
+                onClick={openModal}
+                className="py-2 px-3 mr-5 rounded-md transition duration-300 hover:bg-blue"
+              >
+                Iniciar sesión
+              </button>
+            )} */}
+
+            {/* {user ? (
               <div>
-                <h1>Bienvenido, {user.user.name}!</h1>
-                <p>Tu email es: {user.user.email}</p>
+                <button
+                  className="py-2 px-3 mr-5 rounded-md transition duration-300 bg-red-400 hover:bg-red-600"
+                  onClick={handleLogout} // Cambiado a user.logout
+                >
+                  Cerrar sesión
+                </button>
               </div>
             ) : (
               <button
@@ -99,10 +124,34 @@ export const Header = () => {
               >
                 Iniciar sesión
               </button>
-            )}
-
-            {/* Aquí puedes agregar otros elementos si es necesario */}
-            <Modal isOpen={isModalOpen} onClose={closeModal} />
+            )} */}
+            {/* {userChanged ? ( // Usa el estado 'user' para determinar qué botón mostrar
+              <>
+                <button
+                  className="py-2 px-3 mr-5 rounded-md transition duration-300 bg-red-400 hover:bg-red-600"
+                  onClick={openModal}
+                  // onClick={handleLogout}
+                >
+                  Cerrar sesión
+                </button>
+                <ModalLogout
+                  isOpen={isModalOpen}
+                  onClose={closeModal}
+                  handleLogout={handleLogout}
+                />
+              </>
+            ) : (
+              <>
+                <button
+                  onClick={openModal}
+                  className="py-2 px-3 mr-5 rounded-md transition duration-300 hover:bg-blue"
+                >
+                  Iniciar sesión
+                </button>
+                <Modal isOpen={isModalOpen} onClose={closeModal} />
+              </>
+            )} */}
+            <AuthButton />
           </div>
 
           {/* Mobile button */}

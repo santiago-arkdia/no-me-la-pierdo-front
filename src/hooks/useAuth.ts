@@ -43,6 +43,47 @@
 // };
 
 // export default useAuth;
+// import { useState, useEffect } from "react";
+
+// interface User {
+//   id: string;
+//   email: string;
+//   name: string;
+// }
+
+// const useAuth = () => {
+//   const [user, setUser] = useState<User | null>(null);
+
+//   useEffect(() => {
+//     const userFromStorage = localStorage.getItem("user");
+//     if (userFromStorage) {
+//       setUser(JSON.parse(userFromStorage));
+//     }
+//   }, []);
+
+//   const updateUser = (userData: any) => {
+//     if (userData && userData.data && userData.data.user) {
+//       const { id, email, name } = userData.data.user;
+//       const user = { id, email, name };
+//       setUser(user);
+//       localStorage.setItem("user", JSON.stringify(user));
+//     } else {
+//       setUser(null);
+//       localStorage.removeItem("user");
+//     }
+//   };
+
+//   const logout = () => {
+//     localStorage.removeItem("accessToken");
+//     localStorage.removeItem("user");
+//     setUser(null);
+//   };
+
+//   return { user, updateUser, logout };
+// };
+
+// export default useAuth;
+
 import { useState, useEffect } from "react";
 
 interface User {
@@ -53,6 +94,7 @@ interface User {
 
 const useAuth = () => {
   const [user, setUser] = useState<User | null>(null);
+  const [userChanged, setUserChanged] = useState<boolean>(false); // Nuevo estado userChanged
 
   useEffect(() => {
     const userFromStorage = localStorage.getItem("user");
@@ -67,13 +109,22 @@ const useAuth = () => {
       const user = { id, email, name };
       setUser(user);
       localStorage.setItem("user", JSON.stringify(user));
+      setUserChanged(true); // Actualiza userChanged al modificar el usuario
     } else {
       setUser(null);
       localStorage.removeItem("user");
+      setUserChanged(true); // Actualiza userChanged al modificar el usuario
     }
   };
 
-  return { user, updateUser };
+  const logout = () => {
+    localStorage.removeItem("accessToken");
+    localStorage.removeItem("user");
+    setUser(null);
+    setUserChanged(true); // Actualiza userChanged al cerrar sesión
+  };
+
+  return { user, updateUser, logout, userChanged }; // Devuelve userChanged junto con otros valores
 };
 
 export default useAuth;
