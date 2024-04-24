@@ -34,7 +34,7 @@ function Modal({ isOpen, onClose }: any) {
           x
         </button>
         <div className="h-full">
-          <Login onClose={onClose} />
+          <Login />
         </div>
       </div>
     </div>
