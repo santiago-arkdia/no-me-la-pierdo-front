@@ -31,7 +31,6 @@ const CardSellContainer = ({ selectedDate }: any) => {
         setIsLoading(false); // Actualiza el estado de carga incluso si hay un error
       });
   }, []);
-
   return (
     <div className="w-11/12 p-4">
       <div
@@ -60,8 +59,8 @@ const CardSellContainer = ({ selectedDate }: any) => {
         {session?.user ? (
           <>
             <Link
-              className="text-white px-20 py-2 rounded-full border border-blue hover:bg-blue hover:text-black"
               href="/payment-gateway"
+              className="text-white px-20 py-2 rounded-full border border-blue hover:bg-blue hover:text-black"
             >
               Comprar entradas
             </Link>
