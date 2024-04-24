@@ -68,17 +68,15 @@ const CardSellContainer = ({ selectedDate }: any) => {
           </>
         ) : (
           <>
-            <>
-              <div>
-                <button
-                  onClick={openModal}
-                  className="text-white px-20 py-2 rounded-full border border-blue hover:bg-blue hover:text-black"
-                >
-                  Comprar entradas
-                </button>
-                <Modal isOpen={isModalOpen} onClose={closeModal} />
-              </div>
-            </>
+            <div>
+              <button
+                onClick={openModal}
+                className="text-white px-20 py-2 rounded-full border border-blue hover:bg-blue hover:text-black"
+              >
+                Comprar entradas
+              </button>
+              <Modal isOpen={isModalOpen} onClose={closeModal} />
+            </div>
           </>
         )}
       </div>
