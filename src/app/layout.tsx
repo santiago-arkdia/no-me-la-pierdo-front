@@ -4,6 +4,7 @@ import "./globals.css";
 import { Header } from "app/components/organisms/Header/Header";
 import { Footer } from "app/components/organisms/Footer/Footer";
 import HomeCarousel from "app/components/molecules/HomeCarousel";
+import SessionAuthProvider from "app/context/SessionAuthProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,11 +19,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="es">
       <body className={inter.className}>
-        <Header />
-        {children}
-        <Footer />
+        <SessionAuthProvider>
+          <Header />
+          {children}
+          <Footer />
+        </SessionAuthProvider>
       </body>
     </html>
   );

@@ -4,11 +4,11 @@ import React, { useState, useEffect } from "react";
 import { SubMenuHeader } from "app/components/molecules/SubMenuHeader";
 import Image from "next/image";
 import Modal from "app/components/molecules/ModalLogin";
-import useAuth from "app/hooks/useAuth";
+import { signOut, useSession } from "next-auth/react";
+import Link from "next/link";
 
 export const Header = () => {
   const [scrolled, setScrolled] = useState(false);
-  const user = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,6 +27,7 @@ export const Header = () => {
 
   const openModal = () => setModalOpen(true);
   const closeModal = () => setModalOpen(false);
+  const { data: session } = useSession();
 
   return (
     <header
@@ -86,24 +87,40 @@ export const Header = () => {
               Regístrate
             </a>
           </div> */}
-          <div className="hidden md:flex items-center space-x-1 text-lg font-bold tracking-widest">
-            {user.user?.id ? (
+          {session?.user ? (
+            <>
               <div>
-                <h1>Bienvenido, {user.user.name}!</h1>
-                <p>Tu email es: {user.user.email}</p>
+                <button
+                  onClick={() => signOut()}
+                  className="py-2 px-3 mr-5 rounded-md transition duration-300 hover:bg-red-700 "
+                >
+                  Signout
+                </button>
               </div>
-            ) : (
-              <button
-                onClick={openModal}
-                className="py-2 px-3 mr-5 rounded-md transition duration-300 hover:bg-blue"
-              >
-                Iniciar sesión
-              </button>
-            )}
+            </>
+          ) : (
+            <>
+              <div>
+                <button
+                  onClick={openModal}
+                  className="py-2 px-3 mr-5 rounded-md transition duration-300 hover:bg-blue"
+                >
+                  Iniciar sesión
+                </button>
+                <Modal isOpen={isModalOpen} onClose={closeModal} />
+              </div>
+            </>
+          )}
+          {/* <div className="hidden md:flex items-center space-x-1 text-lg font-bold tracking-widest">
+            <button
+              onClick={openModal}
+              className="py-2 px-3 mr-5 rounded-md transition duration-300 hover:bg-blue"
+            >
+              Iniciar sesión
+            </button>
 
-            {/* Aquí puedes agregar otros elementos si es necesario */}
             <Modal isOpen={isModalOpen} onClose={closeModal} />
-          </div>
+          </div> */}
 
           {/* Mobile button */}
           <div className="md:hidden flex items-center">
@@ -171,5 +188,69 @@ export const Header = () => {
 //         </div>
 //       </div>
 //     </header>
+//   );
+// };
+
+// "use client";
+// import { signOut, useSession } from "next-auth/react";
+// import Modal from "app/components/molecules/ModalLogin";
+// import Link from "next/link";
+// import { useState } from "react";
+
+// export const Header = () => {
+//   const { data: session } = useSession();
+//   const [isModalOpen, setModalOpen] = useState(false);
+
+//   const openModal = () => setModalOpen(true);
+//   const closeModal = () => setModalOpen(false);
+
+//   return (
+//     <nav className="bg-gray-800">
+//       <div className="container mx-auto px-4 py-2 flex justify-between items-center">
+//         <Link
+//           href="/"
+//           className="text-white text-sm font-semibold hover:text-gray-300 mr-4"
+//         >
+//           Home
+//         </Link>
+//         <div>
+//           {session?.user ? (
+//             <>
+//               <Link
+//                 href="/dashboard"
+//                 className="text-white text-sm font-semibold hover:text-gray-300 mr-4"
+//               >
+//                 Dashboard
+//               </Link>
+//               <button
+//                 onClick={() => signOut()}
+//                 className="bg-red-600 text-white text-sm font-semibold px-4 py-2 rounded-md hover:bg-red-700 mr-4"
+//               >
+//                 Signout
+//               </button>
+//             </>
+//           ) : (
+//             <>
+//               <div>
+//                 <button
+//                   onClick={openModal}
+//                   className="py-2 px-3 mr-5 rounded-md transition duration-300 hover:bg-blue"
+//                 >
+//                   Iniciar sesión
+//                 </button>
+//                 <Modal isOpen={isModalOpen} onClose={closeModal} />
+//               </div>
+
+//               <Link
+//                 href="/register"
+//                 className="text-white text-sm font-semibold hover:text-gray-300 mr-4"
+//               >
+//                 Register
+//               </Link>
+//             </>
+//           )}
+//         </div>
+//       </div>
+//     </nav>
 //   );
 // };

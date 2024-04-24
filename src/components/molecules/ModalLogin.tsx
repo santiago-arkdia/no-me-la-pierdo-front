@@ -8,7 +8,7 @@ function Modal({ isOpen, onClose }: any) {
   const handleOutsideClick = (
     event: React.MouseEvent<HTMLDivElement, MouseEvent>
   ) => {
-    onClose(); // Cierra el modal
+    onClose();
   };
 
   // Función para detener la propagación del evento clic dentro del modal
@@ -34,7 +34,7 @@ function Modal({ isOpen, onClose }: any) {
           x
         </button>
         <div className="h-full">
-          <Login onClose={onClose} />
+          <Login />
         </div>
       </div>
     </div>
