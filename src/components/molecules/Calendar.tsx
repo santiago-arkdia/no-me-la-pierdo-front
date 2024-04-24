@@ -57,11 +57,11 @@ const Calendar: React.FC<CalendarProps> = ({
       day
     );
     onDateSelected(newSelectedDate); // Pasar la fecha seleccionada al componente padre
-    console.log("Fecha seleccionada:", newSelectedDate);
+    // console.log("Fecha seleccionada:", newSelectedDate);
   };
 
   const handleInvalidDayClick = () => {
-    console.log("No puedes seleccionar días anteriores al actual");
+    // console.log("No puedes seleccionar días anteriores al actual");
   };
 
   const getDayCount = (date: Date) => {

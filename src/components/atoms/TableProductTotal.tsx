@@ -3,7 +3,6 @@ import ButtonAtom from "./ButtonsAtom";
 import { IoMdClose } from "react-icons/io";
 
 export const TableProductTotal = ({ total, totalItems }: any) => {
-  console.log(total);
   return (
     <tr className="border-b text-blue">
       <th
