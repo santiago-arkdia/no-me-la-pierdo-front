@@ -1,11 +1,36 @@
 "use client";
+import { signIn } from "next-auth/react";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { FaRegEyeSlash } from "react-icons/fa6";
 import { IoMdEye } from "react-icons/io";
 
 export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
+  const [errors, setErrors] = useState<string[]>([]);
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  // const router = useRouter();
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setErrors([]);
+
+    const responseNextAuth = await signIn("credentials", {
+      email,
+      password,
+      redirect: false,
+    });
+    console.log(responseNextAuth);
+
+    if (responseNextAuth?.error) {
+      setErrors(responseNextAuth.error.split(","));
+      return;
+    }
+
+    // router.push("/");
+  };
 
   return (
     <div className="flex w-full h-full ">
@@ -40,22 +65,24 @@ export default function Login() {
           </div>
 
           {/* Formulario */}
-          <form className="space-y-8 px-32">
+          <form onSubmit={handleSubmit} className="space-y-8 px-32">
             <div>
               <label
-                htmlFor="email-address"
+                htmlFor="emai"
                 className="block text-sm font-medium text-blue"
               >
                 Usuario
               </label>
               <input
-                id="email-address"
+                id="email"
                 name="email"
                 type="email"
                 autoComplete="email"
                 required
                 className="mt-2 bg-transparent block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-sm"
                 placeholder="Correo electrónico"
+                value={email}
+                onChange={(event) => setEmail(event.target.value)}
               />
             </div>
             <div className="relative">
@@ -73,6 +100,8 @@ export default function Login() {
                 required
                 className="mt-1 bg-transparent block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-sm"
                 placeholder="Contraseña"
+                value={password}
+                onChange={(event) => setPassword(event.target.value)}
               />
               <div className="absolute inset-y-0 right-0 pr-3 flex items-center">
                 {showPassword ? (
@@ -100,6 +129,15 @@ export default function Login() {
               </button>
             </div>
             <hr />
+            {errors.length > 0 && (
+              <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-2 rounded-md">
+                <ul className="list-disc ml-4">
+                  {errors.map((error) => (
+                    <li key={error}>{error}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </form>
         </div>
       </div>
