@@ -28,14 +28,6 @@ export default function PaymentGateway() {
   const [paymentMethod, setPaymentMethod] = useState<string>("");
   const [empty, setEmpty] = useState<boolean>(false);
 
-  console.log("Info Usuario", { user });
-  console.log("Carro de compras", cart);
-  console.log("name", name);
-  console.log("clientID", clientID);
-  console.log("email", email);
-  console.log("phone", phone);
-  console.log("paymentMethod", paymentMethod);
-
   const openModal = () => setModalOpen(true);
   const closeModal = () => setModalOpen(false);
 
@@ -47,8 +39,6 @@ export default function PaymentGateway() {
     const loadedTickets = tickets ? JSON.parse(tickets) : {};
     setTicketsData(loadedTickets); // Establece los datos recuperados en el estado
   }, []);
-
-  console.log("ticketsData", ticketsData);
 
   const updateTicketsData = (updatedTickets: any) => {
     setTicketsData(updatedTickets);

@@ -5,7 +5,8 @@ import { useEffect, useState } from "react";
 import { useShoppingCart } from "app/hooks/useShoppingCart";
 
 export const TableProductSell = ({ item }: any) => {
-  const { name, price, id, quantity } = item;
+  console.log("TableProductSell", item);
+  const { name, price, id, quantity, date } = item;
   const [quantityItem, setQuantityItem] = useState(quantity);
   const { addToCart, removeFromCart } = useShoppingCart();
 
@@ -25,11 +26,11 @@ export const TableProductSell = ({ item }: any) => {
 
   useEffect(() => {
     if (quantityItem > 0) {
-      addToCart({ id, name, price, quantity: quantityItem });
+      addToCart({ id, name, price, quantity: quantityItem, date });
     } else {
-      addToCart({ id, name, price, quantity: 0 });
+      addToCart({ id, name, price, quantity: 0, date });
     }
-  }, [quantityItem, id, name, price, addToCart]);
+  }, [quantityItem, id, name, price, addToCart, date]);
 
   return (
     <tr className="border-b">
