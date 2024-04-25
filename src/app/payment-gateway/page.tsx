@@ -28,14 +28,6 @@ export default function PaymentGateway() {
   const [paymentMethod, setPaymentMethod] = useState<string>("");
   const [empty, setEmpty] = useState<boolean>(false);
 
-  console.log("Info Usuario", { user });
-  console.log("Carro de compras", cart);
-  console.log("name", name);
-  console.log("clientID", clientID);
-  console.log("email", email);
-  console.log("phone", phone);
-  console.log("paymentMethod", paymentMethod);
-
   const openModal = () => setModalOpen(true);
   const closeModal = () => setModalOpen(false);
 
@@ -47,8 +39,6 @@ export default function PaymentGateway() {
     const loadedTickets = tickets ? JSON.parse(tickets) : {};
     setTicketsData(loadedTickets); // Establece los datos recuperados en el estado
   }, []);
-
-  console.log("ticketsData", ticketsData);
 
   const updateTicketsData = (updatedTickets: any) => {
     setTicketsData(updatedTickets);
@@ -74,20 +64,6 @@ export default function PaymentGateway() {
   //   }
   //  ]
   // }
-
-  // const handlePayment = () => {
-  //   // Verificar si todos los campos están llenos
-  //   if (name && clientID && email && phone && paymentMethod) {
-  //     // Si todos los campos están llenos, mostrar mensaje en la consola
-  //     console.log("Se ha presionado el botón de Pagar");
-  //     setEmpty(false);
-  //     openModal();
-  //   } else {
-  //     // Si algún campo está vacío, mostrar mensaje de error o simplemente no hacer nada
-  //     console.log("Por favor completa todos los campos antes de pagar.");
-  //     setEmpty(true);
-  //   }
-  // };
   const handlePayment = () => {
     // Verificar si todos los campos están llenos
     if (name && clientID && email && phone && paymentMethod) {
@@ -103,7 +79,7 @@ export default function PaymentGateway() {
           ticketId: item.id,
           quantity: item.quantity,
         })),
-        entryDate: "2024-12-12", //fecha de entrada al parque
+        entryDate: cart[0].date, //fecha de entrada al parque
       };
 
       // Realizar la petición POST
@@ -339,10 +315,10 @@ export default function PaymentGateway() {
               Seleciona
             </option>
 
-            <option value="efectivo" className="bg-black text-white">
+            <option value="CASH" className="bg-black text-white">
               Efectivo
             </option>
-            <option value="tarjeta" className="bg-black text-white">
+            <option value="TC" className="bg-black text-white">
               Tarjeta
             </option>
           </select>

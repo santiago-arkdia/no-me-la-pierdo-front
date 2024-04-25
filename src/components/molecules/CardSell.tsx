@@ -7,8 +7,10 @@ import { CiCircleAlert } from "react-icons/ci";
 import { BiSolidDoorOpen, BiSolidMapPin } from "react-icons/bi";
 import { useEffect, useState } from "react";
 import { useShoppingCart } from "app/hooks/useShoppingCart";
+import useDateFormatter from "app/hooks/useDateFormater";
 
 export const CardSell = ({ date, data }: any) => {
+  const formattedDate = useDateFormatter(date);
   const { address, min_age, image, name, opening_time, price, _id: id } = data;
   const [count, setCount] = useState(0);
   const { addToCart } = useShoppingCart();
@@ -25,11 +27,11 @@ export const CardSell = ({ date, data }: any) => {
 
   useEffect(() => {
     if (count > 0) {
-      addToCart({ id, name, price, quantity: count });
+      addToCart({ id, name, price, quantity: count, date: formattedDate });
     } else {
-      addToCart({ id, name, price, quantity: 0 });
+      addToCart({ id, name, price, quantity: 0, date: formattedDate });
     }
-  }, [count, id, name, price, addToCart]);
+  }, [count, id, name, price, addToCart, formattedDate]);
   return (
     <>
       <article className="grid grid-cols-[1fr_2fr_1fr] gap-4 rounded-xl p-4 mb-4 bg-black">
