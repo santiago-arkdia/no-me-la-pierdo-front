@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function MessageSuccessfulSell({ onClose }: any) {
   return (
@@ -34,13 +35,20 @@ export default function MessageSuccessfulSell({ onClose }: any) {
             <p className="text-sm">¡Disfruta del evento!</p>
           </div>
           <div className="flex justify-center">
-            <button
-              onClick={onClose}
+            <Link
+              href={"/"}
               className="border border-blue rounded-full px-10 py-2 hover:bg-blue  hover:text-black "
               style={{ zIndex: 10 }}
             >
               Continuar
-            </button>
+            </Link>
+            {/* <button
+              onClick={handleButtonClick}
+              className="border border-blue rounded-full px-10 py-2 hover:bg-blue  hover:text-black "
+              style={{ zIndex: 10 }}
+            >
+              Continuar
+            </button> */}
           </div>
         </div>
       </div>

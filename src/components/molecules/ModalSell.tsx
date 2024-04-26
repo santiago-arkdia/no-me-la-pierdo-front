@@ -1,7 +1,5 @@
 import MessageSuccessfulSell from "../atoms/MessageSuccessfulSell";
 
-//TODO Hacer que al cerrar mande a home
-
 export function ModalSell({ isOpen, onClose }: any) {
   if (!isOpen) return null;
 
