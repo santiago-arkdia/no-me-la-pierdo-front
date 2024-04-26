@@ -8,6 +8,8 @@ import { useShoppingCart } from "app/hooks/useShoppingCart";
 import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 
+//TODO avisar que campos son los que no tienen datos cambiarlos de color
+
 export default function PaymentGateway() {
   const [isModalOpen, setModalOpen] = useState(false);
   const { cart } = useShoppingCart();

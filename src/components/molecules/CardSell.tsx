@@ -8,6 +8,7 @@ import { BiSolidDoorOpen, BiSolidMapPin } from "react-icons/bi";
 import { useEffect, useState } from "react";
 import { useShoppingCart } from "app/hooks/useShoppingCart";
 import useDateFormatter from "app/hooks/useDateFormater";
+import { useNumberFormatter } from "app/hooks/useNumberFormatter";
 
 export const CardSell = ({ date, data }: any) => {
   const formattedDate = useDateFormatter(date);
@@ -77,7 +78,7 @@ export const CardSell = ({ date, data }: any) => {
             <ButtonAtom icon={CgMathPlus} active onClick={handleIncrement} />
           </div>
           <p className="text-base font-bold mb-2">
-            $ {count === 0 ? price : price * count}
+            $ {useNumberFormatter(count === 0 ? price : price * count)}
           </p>
         </div>
       </article>
