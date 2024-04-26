@@ -41,13 +41,24 @@ export const TableProductSell = ({ item }: any) => {
       >
         {name}
       </th>
-      <td className="px-6 py-4" style={{ width: "16.66%" }}>
+      {/* <td className="px-6 py-4 flex " style={{ width: "16.66%" }}>
         <ButtonAtom
           icon={CgMathMinus}
           onClick={handleDecreaseQuantity}
           active={quantityItem > 0}
         />
-        {quantityItem}
+        <p className="mx-4">{quantityItem}</p>
+        <ButtonAtom icon={CgMathPlus} onClick={handleIncreaseQuantity} active />
+      </td> */}
+      <td className="px-6 py-4 flex" style={{ width: "16.66%" }}>
+        <ButtonAtom
+          icon={CgMathMinus}
+          onClick={handleDecreaseQuantity}
+          active={quantityItem > 0}
+        />
+        <p className="mx-4" style={{ width: "40px", textAlign: "center" }}>
+          {quantityItem}
+        </p>
         <ButtonAtom icon={CgMathPlus} onClick={handleIncreaseQuantity} active />
       </td>
       <td className="px-6 py-4" style={{ width: "16.66%" }}>
