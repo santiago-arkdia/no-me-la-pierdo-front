@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { BiCategory } from "react-icons/bi";
-import { CgMathPlus } from "react-icons/cg";
 import { CiCircleAlert } from "react-icons/ci";
 import { GoStopwatch } from "react-icons/go";
 import { IoMdCalendar } from "react-icons/io";

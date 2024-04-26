@@ -1,7 +1,6 @@
 import Image from "next/image";
 
 export default function MessageSuccessfulSell({ onClose }: any) {
-  // Asumiendo que onClose es la función para manejar el cierre.
   return (
     <div className="flex w-full h-full">
       <div

@@ -1,5 +1,4 @@
 "use client";
-import ButtonAtom from "app/components/atoms/ButtonsAtom";
 import { TableDescriptionCellText } from "app/components/atoms/TableDescriptionCellText";
 import { TableProductSell } from "app/components/atoms/TableProductSell";
 import { TableProductTotal } from "app/components/atoms/TableProductTotal";
@@ -7,14 +6,7 @@ import { ModalSell } from "app/components/molecules/ModalSell";
 import { PaymentHeaderCard } from "app/components/molecules/PaymentHeaderCard";
 import { useShoppingCart } from "app/hooks/useShoppingCart";
 import { useSession } from "next-auth/react";
-import Image from "next/image";
 import { useEffect, useState } from "react";
-import { BiCategory } from "react-icons/bi";
-import { CgMathPlus } from "react-icons/cg";
-import { CiCircleAlert } from "react-icons/ci";
-import { GoStopwatch } from "react-icons/go";
-import { IoMdCalendar } from "react-icons/io";
-import { PiMapPinLineFill } from "react-icons/pi";
 
 export default function PaymentGateway() {
   const [isModalOpen, setModalOpen] = useState(false);
@@ -42,30 +34,6 @@ export default function PaymentGateway() {
     setTicketsData(loadedTickets); // Establece los datos recuperados en el estado
   }, []);
 
-  const updateTicketsData = (updatedTickets: any) => {
-    setTicketsData(updatedTickets);
-  };
-
-  //   api de compra
-  // https://colombia-ticket-be.onrender.com
-  // {
-  //  "userId":"1",
-  //  "clientName":"wer",
-  //  "clientDocumentNumber":"wet",
-  //  "clientEmail":"sad@asd.com",
-  //  "clientPhone":"345345",
-  //  "paymentMethod":"CASH|TC",
-  //  "tickets":[
-  //    {
-  //      "ticketId":"661db9f9aee4f04df557c366",
-  //      "quantity":"2"
-  //    },
-  //  {
-  //    "ticketId":"661dbd8faee4f04df557c367",
-  //    "quantity":"3"
-  //   }
-  //  ]
-  // }
   const handlePayment = () => {
     if (name && clientID && email && phone && paymentMethod) {
       const requestData = {

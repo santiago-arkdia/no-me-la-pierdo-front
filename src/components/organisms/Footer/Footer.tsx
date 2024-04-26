@@ -79,15 +79,6 @@ export const Footer = () => {
         <hr className="my-8 h-px w-5/6  sm:mx-auto lg:my-8  " />
       </div>
       {/*  Menu */}
-      {/* <div className="flex  items-center justify-center">
-        <div>
-          <div className="grid grid-cols-3 gap-8 px-8 py-6 md:grid-cols-3 lg:py-8 sm:grid-cols-2 ">
-            {dataFooter.footer.sections.map((section, index) => (
-              <FooterMenuList key={index} section={section} />
-            ))}
-          </div>
-        </div>
-      </div> */}
       <div className="flex items-center justify-center">
         <div>
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8 px-8 py-6 lg:py-8">
@@ -120,7 +111,6 @@ export const Footer = () => {
       </div>
       {/*  Derechos de autor */}
       <div className=" text-center mt-10">
-        {/* <div className=" px-96 text-center my-10"> */}
         <div className="px-96">
           <hr className="  border-gray-200 sm:mx-auto  " />
         </div>

@@ -74,7 +74,6 @@ export const CardSell = ({ date, data }: any) => {
               onClick={handleDecrement}
             />
             <span>{count}</span>
-            {/* Botón para incrementar */}
             <ButtonAtom icon={CgMathPlus} active onClick={handleIncrement} />
           </div>
           <p className="text-base font-bold mb-2">
