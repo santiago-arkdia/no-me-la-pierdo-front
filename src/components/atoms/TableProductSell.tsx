@@ -3,6 +3,9 @@ import ButtonAtom from "./ButtonsAtom";
 import { IoMdClose } from "react-icons/io";
 import { useEffect, useState } from "react";
 import { useShoppingCart } from "app/hooks/useShoppingCart";
+import { useNumberFormatter } from "app/hooks/useNumberFormatter";
+
+//TODO  revisar porque se eliminan los productos del carrito de compras cuando se elimina uno en la posicion superior de alrreglo
 
 export const TableProductSell = ({ item }: any) => {
   console.log("TableProductSell", item);
@@ -53,7 +56,7 @@ export const TableProductSell = ({ item }: any) => {
         <ButtonAtom icon={CgMathPlus} onClick={handleIncreaseQuantity} active />
       </td>
       <td className="px-6 py-4" style={{ width: "16.66%" }}>
-        ${price * quantityItem}
+        $ {useNumberFormatter(price * quantityItem)}
       </td>
       <td className="px-6 py-4" style={{ width: "16.66%" }}>
         <ButtonAtom icon={IoMdClose} onClick={handleRemoveProduct} active />
