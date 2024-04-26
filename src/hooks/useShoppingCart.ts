@@ -11,7 +11,7 @@ export type CartItem = {
 type Store = {
   cart: CartItem[];
   addToCart: (cartItem: CartItem) => void;
-  removeFromCart: (id: number) => void; // Agrega esta línea
+  removeFromCart: (id: number) => void;
 };
 
 export const useShoppingCart = create<Store>((set) => ({

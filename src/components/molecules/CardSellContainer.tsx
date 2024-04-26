@@ -9,7 +9,7 @@ import Modal from "./ModalLogin";
 
 const CardSellContainer = ({ selectedDate }: any) => {
   const [cardData, setCardData] = useState([]);
-  const [isLoading, setIsLoading] = useState(true); // Estado para manejar la carga
+  const [isLoading, setIsLoading] = useState(true);
   const { data: session } = useSession();
   const [isModalOpen, setModalOpen] = useState(false);
   const openModal = () => setModalOpen(true);
@@ -24,11 +24,11 @@ const CardSellContainer = ({ selectedDate }: any) => {
       })
       .then((data) => {
         setCardData(data);
-        setIsLoading(false); // Actualiza el estado de carga cuando los datos están listos
+        setIsLoading(false);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
-        setIsLoading(false); // Actualiza el estado de carga incluso si hay un error
+        setIsLoading(false);
       });
   }, []);
   return (

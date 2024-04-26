@@ -56,8 +56,7 @@ const Calendar: React.FC<CalendarProps> = ({
       datepickerHeaderDate.getMonth(),
       day
     );
-    onDateSelected(newSelectedDate); // Pasar la fecha seleccionada al componente padre
-    // console.log("Fecha seleccionada:", newSelectedDate);
+    onDateSelected(newSelectedDate);
   };
 
   const handleInvalidDayClick = () => {
@@ -102,8 +101,6 @@ const Calendar: React.FC<CalendarProps> = ({
 
   return (
     <>
-      {/* <div className="mx-auto max-w-md font-normal text-sm w-96 h-96 bg-black rounded-xl flex flex-col mt-4"> */}
-      {/* <div className=" font-normal text-sm w-96 h-96 bg-black rounded-xl flex flex-col mt-4 "> */}
       <div className="max-md:mx-auto min-h-96   font-normal text-sm w-96 h-96 bg-black rounded-xl flex flex-col mt-4 ">
         <div className="p-4 rounded shadow">
           <div className="flex   items-center justify-between  mb-8">
@@ -118,9 +115,6 @@ const Calendar: React.FC<CalendarProps> = ({
             </button>
           </div>
           <div className="grid grid-cols-7 text-center text-lg">
-            {/* {DAYS.map((day) => (
-              <div key={day}>{day}</div>
-            ))} */}
             {DAYS.map((day) => (
               <div key={day} className={day === "D" ? "text-blue" : ""}>
                 {day}
