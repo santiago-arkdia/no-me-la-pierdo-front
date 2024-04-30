@@ -1,7 +1,6 @@
 "use client";
 import { signIn } from "next-auth/react";
 import Image from "next/image";
-// import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { FaRegEyeSlash } from "react-icons/fa6";
 import { IoMdEye } from "react-icons/io";
@@ -11,7 +10,6 @@ export default function Login() {
   const [errors, setErrors] = useState<string[]>([]);
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-  // const router = useRouter();
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -22,14 +20,12 @@ export default function Login() {
       password,
       redirect: false,
     });
-    console.log(responseNextAuth);
+    // console.log(responseNextAuth);
 
     if (responseNextAuth?.error) {
       setErrors(responseNextAuth.error.split(","));
       return;
     }
-
-    // router.push("/");
   };
 
   return (

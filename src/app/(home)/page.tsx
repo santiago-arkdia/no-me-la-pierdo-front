@@ -3,7 +3,6 @@
 import { useState } from "react";
 
 import Calendar from "app/components/molecules/Calendar";
-import { CardSell } from "app/components/molecules/CardSell";
 import CardSellContainer from "app/components/molecules/CardSellContainer";
 import HomeCarousel from "app/components/molecules/HomeCarousel";
 
