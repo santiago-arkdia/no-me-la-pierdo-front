@@ -6,7 +6,6 @@ import { useShoppingCart } from "app/hooks/useShoppingCart";
 import { useNumberFormatter } from "app/hooks/useNumberFormatter";
 
 export const TableProductSell = ({ item }: any) => {
-  console.log("TableProductSell", item);
   const { name, price, id, quantity, date } = item;
   const [quantityItem, setQuantityItem] = useState(quantity);
   const { addToCart, removeFromCart } = useShoppingCart();

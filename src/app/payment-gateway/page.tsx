@@ -31,7 +31,6 @@ export default function PaymentGateway() {
 
   useEffect(() => {
     setCartItems(cart);
-    console.log("Esto es lo que llega", cart);
   }, [cart]);
 
   useEffect(() => {
@@ -49,7 +48,7 @@ export default function PaymentGateway() {
     if (!paymentMethod) emptyFieldsList.push("Método de pago");
 
     if (emptyFieldsList.length > 0) {
-      console.log("Por favor completa todos los campos antes de pagar.");
+      // console.log("Por favor completa todos los campos antes de pagar.");
       setEmptyFields(emptyFieldsList);
     } else {
       const requestData = {
@@ -75,7 +74,7 @@ export default function PaymentGateway() {
       })
         .then((response) => {
           if (response.ok) {
-            console.log("La compra se ha realizado exitosamente.");
+            // console.log("La compra se ha realizado exitosamente.");
             openModal();
           } else {
             console.error("Error al realizar la compra:", response.statusText);
