@@ -5,8 +5,6 @@ import { useEffect, useState } from "react";
 import { useShoppingCart } from "app/hooks/useShoppingCart";
 import { useNumberFormatter } from "app/hooks/useNumberFormatter";
 
-//TODO  revisar porque se eliminan los productos del carrito de compras cuando se elimina uno en la posicion superior de alrreglo
-
 export const TableProductSell = ({ item }: any) => {
   console.log("TableProductSell", item);
   const { name, price, id, quantity, date } = item;
@@ -35,6 +33,10 @@ export const TableProductSell = ({ item }: any) => {
     }
   }, [quantityItem, id, name, price, addToCart, date]);
 
+  useEffect(() => {
+    setQuantityItem(item.quantity);
+  }, [item]);
+
   return (
     <tr className="border-b">
       <th
@@ -48,7 +50,7 @@ export const TableProductSell = ({ item }: any) => {
         <ButtonAtom
           icon={CgMathMinus}
           onClick={handleDecreaseQuantity}
-          active={quantityItem > 0}
+          active={quantityItem > 1}
         />
         <p className="mx-4" style={{ width: "40px", textAlign: "center" }}>
           {quantityItem}
