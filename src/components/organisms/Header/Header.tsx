@@ -54,7 +54,7 @@ export const Header = () => {
           <div className="flex-1"></div>
 
           {/* Primary nav */}
-          <div className="hidden md:flex items-center space-x-1 text-lg font-bold tracking-widest">
+          <div className="hidden md:flex items-center space-x-1 text-2xl font-bold tracking-widest">
             <a href="/" className="px-3 text-blue">
               Inicio
             </a>
@@ -103,7 +103,7 @@ export const Header = () => {
               <div>
                 <button
                   onClick={openModal}
-                  className="py-2 px-3 mr-5 rounded-md transition duration-300 hover:bg-blue"
+                  className="py-2 px-3 mr-5 rounded-md tracking-wide border-2 border-blue transition duration-300 hover:bg-blue"
                 >
                   Iniciar sesión
                 </button>
