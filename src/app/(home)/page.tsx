@@ -5,6 +5,7 @@ import { useState } from "react";
 import Calendar from "app/components/molecules/Calendar";
 import CardSellContainer from "app/components/molecules/CardSellContainer";
 import HomeCarousel from "app/components/molecules/HomeCarousel";
+import { ButtonBuyHomeAtom } from "app/components/atoms/ButtonBuyHomeAtom";
 
 export default function Home() {
   const [selectedDate, setSelectedDate] = useState<Date>(new Date());
@@ -30,6 +31,7 @@ export default function Home() {
             <CardSellContainer selectedDate={selectedDate} />
           </div>
         </section>
+        <ButtonBuyHomeAtom />
       </div>
     </main>
   );
