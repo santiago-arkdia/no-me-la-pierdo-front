@@ -145,7 +145,7 @@ export default function PaymentGateway() {
       </div>
       <div className="w-1/2 mx-auto mb-8">
         <h2 className="text-center text-3xl">Ingresa tus datos</h2>
-        <div className="flex flex-wrap justify-between w-[500px] mx-auto text-sm text-blue">
+        <div className="flex flex-wrap justify-between w-[500px] mx-auto text-sm text-blue font-light">
           <div
             className={`w-full sm:w-1/2 p-2 ${
               emptyFields.includes("Nombre completo") ? " text-red-500" : ""
@@ -218,7 +218,7 @@ export default function PaymentGateway() {
             />
           </div>
         </div>
-        <div className="flex flex-col justify-center p-2 mx-auto w-[292px] mb-6">
+        <div className="flex flex-col justify-center p-2 mx-auto w-[292px] mb-6 font-light text-sm">
           <label
             htmlFor="payment"
             className={`text-blue ${
