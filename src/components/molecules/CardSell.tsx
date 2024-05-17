@@ -43,8 +43,8 @@ export const CardSell = ({ date, data }: any) => {
         {/* Segunda columna (información central) */}
         <div className="flex flex-col items-start">
           <h2 className="text-lg font-bold mb-2">{name}</h2>
-          <div className="flex flex-col space-y-2 text-sm pl-2 ">
-            <p className="flex items-center">
+          <div className="flex flex-col space-y-2 text-sm pl-2 font-light">
+            <p className="flex items-center ">
               <CiCircleAlert className="text-xl mx-1" />{" "}
               {`Edad mínima de ingreso: ${min_age} años`}
             </p>

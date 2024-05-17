@@ -32,11 +32,11 @@ const CardSellContainer = ({ selectedDate }: any) => {
       });
   }, []);
   return (
-    <div className="w-11/12 p-4">
+    <div className="w-11/12 px-4">
       <div
         className="overflow-auto custom-scrollbar"
         style={{
-          height: "650px",
+          // height: "650px",
           maxHeight: "800px",
           maxWidth: "850px",
         }}
@@ -55,7 +55,7 @@ const CardSellContainer = ({ selectedDate }: any) => {
           ))
         )}
       </div>
-      <div className="flex justify-center">
+      {/* <div className=" bg-red-500">
         {session?.user ? (
           <>
             <Link
@@ -78,7 +78,7 @@ const CardSellContainer = ({ selectedDate }: any) => {
             </div>
           </>
         )}
-      </div>
+      </div> */}
     </div>
   );
 };
