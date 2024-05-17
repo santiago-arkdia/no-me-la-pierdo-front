@@ -8,7 +8,7 @@ export const TableProductTotal = ({ total, totalItems }: any) => {
         className="px-6 py-4 font-medium  whitespace-nowrap pl-20 "
         style={{ width: "50%" }}
       >
-        Total
+        TOTAL
       </th>
       <td className="px-6 py-4 text-center" style={{ width: "16.66%" }}>
         {useNumberFormatter(totalItems)}
