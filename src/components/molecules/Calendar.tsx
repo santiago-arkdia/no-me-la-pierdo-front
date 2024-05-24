@@ -314,7 +314,7 @@ const Calendar: React.FC<CalendarProps> = ({
                 <div
                   key={day}
                   className={`cursor-pointer p-2 rounded-full ${
-                    isToday(day) ? "text-red border-red border" : ""
+                    isToday(day) ? "border-blue border-2 " : ""
                   } ${
                     isSelectedDay(day) ? "bg-blue text-white" : "hover:bg-blue"
                   } ${
