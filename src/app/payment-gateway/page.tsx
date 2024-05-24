@@ -119,7 +119,7 @@ export default function PaymentGateway() {
     <section className="mx-auto w-3/4 rounded-lg bg-black p-14 shadow-xl shadow-black/50">
       <div className="mb-6">
         <div className="flex  gap-4 mb-8 ">
-          <PaymentHeaderCard />
+          <PaymentHeaderCard date={cart[0]?.date} />
         </div>
         <hr className="bg-blue h-0.5 text-transparent" />
       </div>

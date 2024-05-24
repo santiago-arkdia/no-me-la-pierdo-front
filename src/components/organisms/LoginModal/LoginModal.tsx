@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import { FaRegEyeSlash } from "react-icons/fa6";
 import { IoMdEye } from "react-icons/io";
 
-export default function Login() {
+export default function LoginModal() {
   const [showPassword, setShowPassword] = useState(false);
   const [errors, setErrors] = useState<string[]>([]);
   const [email, setEmail] = useState<string>("");

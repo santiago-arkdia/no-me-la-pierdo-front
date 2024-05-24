@@ -1,5 +1,5 @@
 import React from "react";
-import Login from "app/app/login/page";
+import LoginModal from "../organisms/LoginModal/LoginModal";
 
 function Modal({ isOpen, onClose }: any) {
   if (!isOpen) return null;
@@ -34,7 +34,7 @@ function Modal({ isOpen, onClose }: any) {
           x
         </button>
         <div className="h-full">
-          <Login />
+          <LoginModal />
         </div>
       </div>
     </div>
