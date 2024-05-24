@@ -7,7 +7,7 @@ import { IoMdCalendar } from "react-icons/io";
 import { PiMapPinLineFill } from "react-icons/pi";
 
 export const PaymentHeaderCard = ({ date }: any) => {
-  console.log(date);
+  const formattedDate = useDateFormatterPayment(date);
   return (
     <>
       <div>
@@ -37,7 +37,7 @@ export const PaymentHeaderCard = ({ date }: any) => {
             <p className="mb-6 flex items-center space-x-2">
               <IoMdCalendar />
               {/* <span>Fecha: 01 abril, 2024</span> */}
-              <span>Fecha: {useDateFormatterPayment(date)}</span>
+              <span>Fecha: {formattedDate}</span>
             </p>
           </div>
           <div className="w-2/4">
