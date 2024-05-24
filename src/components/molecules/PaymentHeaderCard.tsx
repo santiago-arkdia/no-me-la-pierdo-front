@@ -1,3 +1,4 @@
+import useDateFormatterPayment from "app/hooks/useDateFormatterPayment";
 import Image from "next/image";
 import { BiCategory } from "react-icons/bi";
 import { CiCircleAlert } from "react-icons/ci";
@@ -5,7 +6,8 @@ import { GoStopwatch } from "react-icons/go";
 import { IoMdCalendar } from "react-icons/io";
 import { PiMapPinLineFill } from "react-icons/pi";
 
-export const PaymentHeaderCard = () => {
+export const PaymentHeaderCard = ({ date }: any) => {
+  console.log(date);
   return (
     <>
       <div>
@@ -34,7 +36,8 @@ export const PaymentHeaderCard = () => {
             </p>
             <p className="mb-6 flex items-center space-x-2">
               <IoMdCalendar />
-              <span>Fecha: 01 abril, 2024</span>
+              {/* <span>Fecha: 01 abril, 2024</span> */}
+              <span>Fecha: {useDateFormatterPayment(date)}</span>
             </p>
           </div>
           <div className="w-2/4">
